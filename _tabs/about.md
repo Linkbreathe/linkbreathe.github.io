@@ -4,8 +4,11 @@ icon: fas fa-info-circle
 order: 4
 ---
 
-<!-- > Add Markdown syntax content to file `_tabs/about.md`{: .filepath } and it will show up on this page. -->
-<!-- {: .prompt-tip } -->
+> The Blog monitors traffic by Google Analytics. 
+{: .prompt-tip }
+
+> Denne blog overvåger trafikken ved hjælp af Google Analytics. 
+{: .prompt-tip }
 
 # Wei Xiong
 
