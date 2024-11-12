@@ -17,6 +17,9 @@ image:
 > For quick review operations only
 {: .prompt-danger }
 
+> Test command: bundle exec jekyll s
+{: .prompt-tip }
+
 ## Headings
 
 <!-- markdownlint-capture -->
