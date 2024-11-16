@@ -5,6 +5,9 @@ date: 2024-11-16 23:27:00 +0200
 categories: [Additional]
 math: true
 tags: [Barnes-Hut Optimization]
+image:
+  path: https://linkingblog.oss-eu-central-1.aliyuncs.com/picgo/20241116234006.png
+  alt: default.
 ---
 ## Barnes-Hut Optimization
 
