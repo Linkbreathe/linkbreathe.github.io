@@ -2,9 +2,9 @@
 title: HCI Track-B DOM & Events Week37
 author: <weixiong_626> 
 date: 2024-11-15 14:00:00 +0200
-categories: [Human Computer Interaction] 
+categories: [Human Computer Interaction, Track B] 
 math: true 
-tags: [] 
+tags: [DOM] 
 image:
   path: https://linkingblog.oss-eu-central-1.aliyuncs.com/picgo/20241115201434.png
   alt: Dom Tree
