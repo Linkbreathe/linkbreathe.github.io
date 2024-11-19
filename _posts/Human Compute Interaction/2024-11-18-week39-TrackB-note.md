@@ -1,5 +1,5 @@
 --- 
-title: HCI Track-A Visual Responsive web design Week39
+title: HCI Track-B Visual Responsive web design Week39
 author: <weixiong_626> 
 date: 2024-11-18 23:00:00 +0200
 categories: [Human Computer Interaction,Track B] 
@@ -7,7 +7,6 @@ math: true
 tags: [Responsive web design]
 image:
   path: https://linkingblog.oss-eu-central-1.aliyuncs.com/picgo/20241118235351.png
-  lqip: data:image/webp;base64,UklGRpoAAABXRUJQVlA4WAoAAAAQAAAADwAABwAAQUxQSDIAAAARL0AmbZurmr57yyIiqE8oiG0bejIYEQTgqiDA9vqnsUSI6H+oAERp2HZ65qP/VIAWAFZQOCBCAAAA8AEAnQEqEAAIAAVAfCWkAALp8sF8rgRgAP7o9FDvMCkMde9PK7euH5M1m6VWoDXf2FkP3BqV0ZYbO6NA/VFIAAAA
   alt: Responsive
 ---
 ## Notes on Responsive Web Design
