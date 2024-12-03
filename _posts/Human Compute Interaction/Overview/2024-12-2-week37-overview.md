@@ -9,6 +9,8 @@ tags: []
 
 ## TRACK - A
 
+------
+
 ### What’s a Command-Line Interface (CLI) and its Tradeoffs?
 
 **Definition:**
@@ -47,7 +49,11 @@ Direct Manipulation involves interacting with digital objects directly, resembli
 
 ------
 
-### What Does Translational Distance Mean?
+### What Does Translational Distance Mean(Degrees of Directness)?
+
+- Weak Direct Manipulation: Requires intermediary steps, such as using menus or dialog boxes.
+- Strong Direct Manipulation: Users interact with objects directly using handles or gestures.
+- Immersive Manipulation: Involves virtual or augmented reality, where physical actions correspond closely to digital effects.
 
 **Definition:**
 Translational distance refers to the metaphorical or physical gap between the user's actions and the system's responses in an interaction. It represents the effort required by the user to translate their intentions into actions that the system can understand and execute.
