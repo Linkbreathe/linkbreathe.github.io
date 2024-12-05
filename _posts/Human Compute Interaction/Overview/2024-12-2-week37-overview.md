@@ -1,5 +1,5 @@
 --- 
-title: HCI Week 37 - GUIs & DOM & Events
+title: HCI Overview Week 37 - GUIs & DOM & Events
 author: <weixiong_626> 
 date: 2024-12-02 21:33:00 +0200
 categories: [Human Computer Interaction,Overview] 

@@ -1,5 +1,5 @@
 --- 
-title: HCI Week 39 - GUI design in praxis & Responsive Web
+title: HCI Overview Week 39 - GUI design in praxis & Responsive Web
 author: <weixiong_626> 
 date: 2024-12-03 2:00:00 +0200
 categories: [Human Computer Interaction,Overview] 

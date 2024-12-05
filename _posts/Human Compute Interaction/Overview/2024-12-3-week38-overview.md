@@ -1,5 +1,5 @@
 --- 
-title: HCI Week 38 - GUI Design Principles
+title: HCI Overview Week 38 - GUI Design Principles
 author: <weixiong_626> 
 date: 2024-12-03 1:00:00 +0200
 categories: [Human Computer Interaction,Overview] 

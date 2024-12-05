@@ -1,5 +1,5 @@
 --- 
-title: HCI Week 41 - Evaluating User Interfaces 2 Empirical & JavaScript for Desktop Apps
+title: HCI Overview Week 41 - Evaluating User Interfaces 2 Empirical & JavaScript for Desktop Apps
 author: <weixiong_626> 
 date: 2024-12-03 5:00:00 +0200
 categories: [Human Computer Interaction,Overview] 

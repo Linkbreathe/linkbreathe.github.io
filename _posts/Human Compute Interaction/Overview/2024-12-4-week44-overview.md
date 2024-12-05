@@ -1,5 +1,5 @@
 --- 
-title: HCI Week 44 - Understanding People 2 Activity Theory
+title: HCI Overview Week 44 - Understanding People 2 Activity Theory
 author: <weixiong_626> 
 date: 2024-12-03 8:00:00 +0200
 categories: [Human Computer Interaction,Overview] 

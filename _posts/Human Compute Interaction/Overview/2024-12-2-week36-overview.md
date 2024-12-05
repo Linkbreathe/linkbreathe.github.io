@@ -1,5 +1,5 @@
 --- 
-title: HCI Week 36 - Devices & JavaScript
+title: HCI Overview Week 36 - Devices & JavaScript
 author: <weixiong_626> 
 date: 2024-12-02 21:33:00 +0200
 categories: [Human Computer Interaction,Overview] 

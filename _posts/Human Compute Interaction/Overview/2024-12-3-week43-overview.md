@@ -1,5 +1,5 @@
 ---
-title: HCI Week 43 - Understanding People 1 Perception, Cognition and Motor Skills
+title: HCI Overview Week 43 - Understanding People 1 Perception, Cognition and Motor Skills
 author: <weixiong_626> 
 date: 2024-12-03 7:00:00 +0200
 categories: [Human Computer Interaction,Overview] 
