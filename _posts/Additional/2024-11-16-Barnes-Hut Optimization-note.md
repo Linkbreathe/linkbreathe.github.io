@@ -2,7 +2,7 @@
 title: Barnes-Hut
 author: <weixiong_626>
 date: 2024-11-16 23:27:00 +0200
-categories: [Additional]
+categories: [Additional,DAVI]
 math: true
 tags: [Barnes-Hut Optimization]
 image:
