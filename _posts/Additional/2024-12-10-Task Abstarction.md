@@ -2,7 +2,7 @@
 title: How We Perform Task Abstraction in Data Visualization Design 
 author: <weixiong_626> 
 date: 2024-12-10 21:30:00 +0200
-categories: [Additional，DAVI] 
+categories: [Additional,DAVI] 
 math: true 
 tags: []
 ---
