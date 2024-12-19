@@ -190,7 +190,7 @@ They help ensure **expressiveness** (matching data types to visual encodings) an
 
 ---
 
-## Evaluation (Munen’s Nested Model)
+## Evaluation (Munzner's Nested Model)
 - **Layers:** Domain situation → Data/task abstraction → Visual encoding → Algorithms.
 - **Threats and Validation:** Each layer has potential pitfalls; validate accordingly.
    - Algorithms: Test complexity, runtime.
