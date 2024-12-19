@@ -2,7 +2,7 @@
 title: DAVI Data Preprocessing - redo
 author: <weixiong_626> 
 date: 2024-12-18 13:30:00 +0200
-categories: [DAVI,Lecture] 
+categories: [Data Visualization,Redo] 
 math: true 
 tags: []  
 ---

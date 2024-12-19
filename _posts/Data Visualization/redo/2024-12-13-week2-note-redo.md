@@ -2,7 +2,7 @@
 title: DAVI Visual Encoding - redo
 author: <weixiong_626> 
 date: 2024-12-13 21:30:00 +0200
-categories: [DAVI,Lecture] 
+categories: [Data Visualization,Redo] 
 math: true 
 tags: []
 ---

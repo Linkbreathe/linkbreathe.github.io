@@ -2,7 +2,7 @@
 title: DAVI Visualization Design redo
 author: <weixiong_626>
 date: 2024-12-10 12:55:00 +0200
-categories: [Data Visualization,Lecture]
+categories: [Data Visualization,Redo]
 math: true
 tags: [DIKW Hierachy, Data Content, Data Context,Task Abstraction, Andrienko]
 --- 
