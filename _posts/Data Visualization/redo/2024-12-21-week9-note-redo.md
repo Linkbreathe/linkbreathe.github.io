@@ -292,7 +292,7 @@ Below is a structured summary of the professor’s lecture, capturing key points
 5. **Van Wijk’s Model**  
    - “Van Wijk, J. J.: The Value of Visualization,” *IEEE Visualization 2005*.
 6. **Time Visualization**  
-   - *TimeViz Browser* at [timeviz.net](http://timeviz.net/) (companion for the *Visualizing Time-Oriented Data* book).
+   - *TimeViz Browser* at [timeviz.net](https://timeviz.net/) (companion for the *Visualizing Time-Oriented Data* book).
    - **Spiral Visualization** (Christian Tominski)  
    - **Arc Diagrams** (often for text/music repeating patterns).
    - **Gapminder** (Hans Rosling).
