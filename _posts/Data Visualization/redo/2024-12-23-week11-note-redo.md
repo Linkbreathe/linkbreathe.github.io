@@ -216,7 +216,7 @@ When you have a strict hierarchy (no cycles), you can choose:
 - Children “overlap” or “offset” from their parent.  
 - Allows more space for internal labels or interactions.  
 
-> **Resource**: The professor mentioned [Treemaps (TreVis.net)](http://trevis.net/) as a gallery of diverse tree visualization methods.
+> **Resource**: The professor mentioned [Treemaps (TreVis.net)](https://trevis.net/) as a gallery of diverse tree visualization methods.
 
 ---
 
