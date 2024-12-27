@@ -1,5 +1,5 @@
 --- 
-title: HCI Overview Week 47 - Universal Usability & Accessibility
+title: HCI Overview Week 47 - History of Interactive Computing
 author: <weixiong_626> 
 date: 2024-12-05 7:00:00 +0200
 categories: [Human Computer Interaction,Overview] 
