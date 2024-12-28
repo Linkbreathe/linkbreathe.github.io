@@ -95,18 +95,3 @@ We demonstrated with two cases:
 
 ------
 
-## 4. Next Steps
-
-- Tune $\lambda$ and $\vec{w}$ to minimize the cost function.
-- Use cross-validation to find the balance between bias and variance.
-- Visualize the decision boundary, error reduction, and cost function trends during optimization.
-
-------
-
-## Code Simulation
-
-If needed, I can generate a Python-based simulation of the optimization process, visualizing:
-
-- Cost function reduction over iterations.
-- Decision boundary evolution.
-- Impact of different $\lambda$ values.
