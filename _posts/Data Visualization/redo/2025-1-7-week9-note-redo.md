@@ -1,7 +1,7 @@
 ---
 title: DAVI Visualizing Time-oriented Data Redo
 author: <weixiong_626>
-date: 2024-1-7 01:16:00 +0200
+date: 2025-1-7 01:16:00 +0200
 categories: [Data Visualization,Redo]
 math: true
 tags: []
