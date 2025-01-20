@@ -7,7 +7,6 @@ math: true
 tags: [Robinson Matrix]
 ---
 
-
 **Robinson 矩阵（Robinson matrix）**常出现在数据排序（seriation）、分类（clustering）以及考古学年代测定等领域，核心思想是：如果数据本身可以在一条“线”或“序列”上合理排列，那么经过适当行列重排后，矩阵会呈现一种“随距离主对角线越远，数值越小（或越大）”的单调性结构。具有这类结构的矩阵也常被称为满足 **Robinson 性质（Robinson property）** 的矩阵。
 
 ------
@@ -23,21 +22,37 @@ tags: [Robinson Matrix]
 
 根据不同上下文可能会有略微不同的形式，最常见的表述方式之一是针对于**距离矩阵**（或不相似度矩阵）的单调性要求：
 
-> 给定一个 n×nn \times nn×n 的（对称）距离矩阵 DDD，若存在一个对 {1,2,…,n}\{1,2,\dots,n\}{1,2,…,n} 的排列 π\piπ，使得对于任意满足
+$$
+\begin{equation}
+\text{给定一个 } n \times n \text{ 的（对称）距离矩阵 } D, \text{ 若存在一个对 } \{1,2,\dots,n\} \text{ 的排列 } \pi, \text{ 使得对于任意满足 } i < j < k \text{ 的三元组，}
+\label{eq:robinson1}
+\end{equation}
+$$
 
-i<j<ki < j < ki<j<k
+$$
+\begin{equation}
+D\big(\pi(i), \pi(j)\big) \leq D\big(\pi(i), \pi(k)\big) \quad \text{且} \quad D\big(\pi(i), \pi(j)\big) \leq D\big(\pi(j), \pi(k)\big),
+\label{eq:robinson2}
+\end{equation}
+$$
 
-的三元组，我们都有
-
-D(π(i),π(j))  ≤  D(π(i),π(k))且D(π(i),π(j))  ≤  D(π(j),π(k)),D\big(\pi(i), \pi(j)\big) \;\le\; D\big(\pi(i), \pi(k)\big) \quad \text{且} \quad D\big(\pi(i), \pi(j)\big) \;\le\; D\big(\pi(j), \pi(k)\big),D(π(i),π(j))≤D(π(i),π(k))且D(π(i),π(j))≤D(π(j),π(k)),
-
-则称 DDD 为 **Robinson dissimilarity**，相应地也说该矩阵在排列 π\piπ 下具有 **Robinson 性质**，或称为 **Robinson 矩阵**。
+$$
+\begin{equation}
+\text{则称 } D \text{ 为 } \text{Robinson dissimilarity，或称为 Robinson 矩阵。}
+\label{eq:robinson3}
+\end{equation}
+$$
 
 直观地说，“序号”越接近的两个样本，其距离不会大于与更远序号样本的距离；即在一个**线型**的排列中，距离值随着样本对在序列上位置的“间隔”增大而不会变小。
 
 若讨论的是**相似度矩阵**（或亲和矩阵），其形式也有类似的（但通常是随距离对角线越远，相似度越小）的单调性要求，只不过不等式方向可能会“翻转”：
 
-S(π(i),π(j))  ≥  S(π(i),π(k)),S(π(i),π(j))  ≥  S(π(j),π(k)).S\big(\pi(i), \pi(j)\big) \;\ge\; S\big(\pi(i), \pi(k)\big), \quad S\big(\pi(i), \pi(j)\big) \;\ge\; S\big(\pi(j), \pi(k)\big).S(π(i),π(j))≥S(π(i),π(k)),S(π(i),π(j))≥S(π(j),π(k)).
+$$
+\begin{equation}
+S\big(\pi(i), \pi(j)\big) \geq S\big(\pi(i), \pi(k)\big), \quad S\big(\pi(i), \pi(j)\big) \geq S\big(\pi(j), \pi(k)\big).
+\label{eq:robinson4}
+\end{equation}
+$$
 
 ------
 
