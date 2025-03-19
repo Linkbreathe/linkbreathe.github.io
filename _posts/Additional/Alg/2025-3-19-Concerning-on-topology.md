@@ -2,7 +2,7 @@
 title: Concerning on topology
 author: <weixiong_626> 
 date: 2025-3-10 21:30:00 +0200
-categories: [Additional,Alg] 
+categories: [Additional,LLM] 
 math: true 
 tags: []
 ---
