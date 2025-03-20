@@ -75,18 +75,4 @@ simplify everyday life.
 ## 🎨🎮🎶📷Hobbies and Interests
 
 Yeah, I'm not robot without feeling, I do have some moments and landscape want to record, so a loyal backpacker who is always on the lookout for great sights is my label.   
-Thank you for reading this, no matter where you are in the world, I hope you can feel some happiness through these moments.
-
-## 📷Some Moments
-- Oslo Norway: 
-![image-20240905234131662](https://linkingblog.oss-eu-central-1.aliyuncs.com/IMG_20250303_084945.jpg)  
-
-- Copenhagen Denmark:
-![image-20240905234131662](https://linkingblog.oss-eu-central-1.aliyuncs.com/IMG_20241017_184113.jpg)  
-
-- Aarhus Denmark: 
-![image-20240905234131662](https://linkingblog.oss-eu-central-1.aliyuncs.com/IMG_20241220_145714.jpg)  
-
-- Singapore:
-![image-20240905234131662](https://linkingblog.oss-eu-central-1.aliyuncs.com/IMG_20240822_102938.jpg)  
-  
+Thank you for reading this, no matter where you are in the world, I hope you can feel some happiness in daily life.
