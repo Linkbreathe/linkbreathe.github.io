@@ -30,6 +30,10 @@ When `exporting` the model, remember to select `Checkpoint path`, then `Export q
 
 https://blog.csdn.net/Andy_shenzl/article/details/141709811
 
+## Llama.cpp
+
+https://zhuanlan.zhihu.com/p/695287607  
+
 ## pip list
 ```text
 Package                  Version      Editable project location
