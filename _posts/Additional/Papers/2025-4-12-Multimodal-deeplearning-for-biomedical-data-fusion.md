@@ -1,5 +1,5 @@
 --- 
-title: Multimodal Deep Learning for Biomedical Data Fusion: A Review
+title: Multimodal Deep Learning for Biomedical Data Fusion-A Review
 author: <weixiong_626> 
 date: 2025-4-12 4:30:00 +0200
 categories: [LLM, Bio-Engineering] 
