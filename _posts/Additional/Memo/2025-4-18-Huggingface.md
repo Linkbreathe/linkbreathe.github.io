@@ -23,8 +23,14 @@ huggingface-cli login ## get the token from website
 ```python
 huggingface-cli download --resume-download {model name from huggingface} --local-dir {current_dictory} # Download in the current directory
 
+# example 
+huggingface-cli download --resume-download black-forest-labs/FLUX.1-dev --local-dir FLUX.1-dev
 ```
 
+## Download Dataset
+```python
+huggingface-cli download --resume-download --repo-type dataset XXXX/XXXX-XX-XXXXX-XX-XX-XXX
+```
 
  
 
