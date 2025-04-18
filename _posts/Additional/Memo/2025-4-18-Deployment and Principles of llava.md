@@ -56,3 +56,10 @@ python -m llava.serve.gradio_web_server   --controller http://localhost:10000   
 ## Outcome
 
 ![pc](https://linkingblog.oss-eu-central-1.aliyuncs.com/picgo/20250418145933.png)
+
+## When bug appears  
+
+> Could not parse server response: SyntaxError: Unexpected token 'I', "Internal S"... is not valid JSON
+{: .prompt-danger }  
+
+Just UPDATE: `pip install gradio -U`
