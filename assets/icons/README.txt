@@ -1,0 +1,1 @@
+Favicons and social icons.

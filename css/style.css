@@ -1,0 +1,146 @@
+/* ============================================================
+   Academic portfolio — visual system
+   Edit tokens below; everything else inherits from them.
+   ============================================================ */
+:root{
+  --bg:#FAF9F7; --surface:#FFFFFF; --ink:#1A1917; --ink-2:#34332F;
+  --muted:#55534F; --muted-2:#8C8880; --faint:#B5B0A6;
+  --line:#E4E1DA; --line-2:#E9E6DF; --fill:#F2EFE9;
+  --accent:#3C5A54;                       /* muted accent — change here only */
+  --serif:'Newsreader',Georgia,'Times New Roman',serif;
+  --sans:'Schibsted Grotesk',Helvetica,Arial,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,monospace;
+  --wrap:1180px; --pad:clamp(20px,5vw,64px);
+  --r-card:16px; --r-pill:999px;
+  --stripe:repeating-linear-gradient(135deg,rgba(26,25,23,.055) 0 1px,transparent 1px 9px);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+  font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img{max-width:100%;display:block}
+a{color:var(--ink);text-decoration:none}
+a:hover{color:var(--accent)}
+::selection{background:#E9E5DC}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+
+/* --- type ------------------------------------------------- */
+h1,h2,h3{font-family:var(--serif);font-weight:400;letter-spacing:-.015em;margin:0;text-wrap:balance}
+h1{font-size:clamp(36px,5.2vw,62px);line-height:1.07;letter-spacing:-.02em}
+h2{font-size:clamp(28px,3.4vw,42px);line-height:1.12}
+h3{font-size:24px;line-height:1.2}
+p{margin:0;text-wrap:pretty}
+.lede{font-size:clamp(16px,1.3vw,18px);line-height:1.65;color:#4A4844;max-width:54ch}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.label{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-2)}
+.meta{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);
+  display:flex;flex-wrap:wrap;gap:10px;align-items:baseline}
+.meta .sep{color:#C6C2B9}
+.meta .dim{color:var(--muted-2)}
+.small{font-size:14px;color:var(--muted-2)}
+
+/* --- layout ----------------------------------------------- */
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--pad)}
+.section{padding:clamp(56px,7vw,96px) 0;border-top:1px solid var(--line)}
+.section--tight{padding:clamp(40px,5vw,64px) 0}
+.grid{display:grid;gap:clamp(20px,2.5vw,32px);grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.grid--facts{grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:clamp(28px,4vw,56px)}
+.grid--interests{grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:clamp(24px,3vw,44px)}
+.grid--gallery{grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:clamp(14px,1.8vw,22px)}
+.row{display:flex;flex-wrap:wrap;gap:16px clamp(32px,5vw,72px)}
+.row--between{justify-content:space-between;align-items:baseline}
+.stack{display:flex;flex-direction:column;gap:12px}
+
+/* --- header ----------------------------------------------- */
+.site-head{position:sticky;top:0;z-index:20;background:rgba(250,249,247,.88);
+  backdrop-filter:blur(10px);border-bottom:1px solid transparent;transition:border-color .2s ease}
+.site-head.is-scrolled{border-bottom-color:var(--line)}
+.site-head .wrap{display:flex;flex-wrap:wrap;align-items:baseline;gap:16px 28px;padding-top:18px;padding-bottom:18px}
+.wordmark{font-size:14px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;margin-right:auto}
+.nav{display:flex;flex-wrap:wrap;gap:8px 26px;font-size:14.5px;color:var(--muted)}
+.nav a{border-bottom:1px solid transparent;padding:2px 0;color:var(--muted)}
+.nav a:hover,.nav a[aria-current="page"]{color:var(--accent);border-bottom-color:var(--accent)}
+.backlink{display:inline-flex;align-items:center;gap:10px;min-height:44px;font-size:14.5px;color:var(--muted);margin-right:auto}
+.backlink span{font-family:var(--mono)}
+
+/* --- buttons ---------------------------------------------- */
+.btn{display:inline-flex;align-items:center;gap:12px;min-height:48px;padding:0 24px;
+  border-radius:var(--r-pill);border:1px solid #DCD8D0;font-size:14.5px;font-weight:500;background:none;
+  font-family:inherit;color:var(--ink);cursor:pointer;transition:border-color .16s ease,background .16s ease,color .16s ease}
+.btn:hover{border-color:var(--ink);color:var(--ink)}
+.btn--solid{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.btn--solid:hover{background:var(--accent);border-color:var(--accent);color:var(--bg)}
+.btn .tag{font-family:var(--mono);font-size:11.5px;opacity:.7}
+.btn .ext{color:var(--faint)}
+.btn-row{display:flex;flex-wrap:wrap;gap:12px}
+
+/* --- image placeholders (swap for <img>) ------------------ */
+.ph{border:1px solid var(--line);border-radius:14px;background-color:var(--fill);background-image:var(--stripe);
+  display:flex;align-items:flex-end;padding:14px}
+.ph span{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--muted-2)}
+.ph--portrait{aspect-ratio:4/5}
+.ph--cover{aspect-ratio:16/10;border-radius:0;border:0}
+.ph--hero{aspect-ratio:16/9;border-radius:18px;padding:18px}
+.ph--fig{aspect-ratio:16/9;border-radius:12px}
+.ph--tile{aspect-ratio:4/3;border-radius:12px}
+
+/* --- project cards ---------------------------------------- */
+.card{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:var(--r-card);
+  background:var(--surface);overflow:hidden;transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease}
+.card:hover{transform:translateY(-3px);box-shadow:0 14px 34px -22px rgba(26,25,23,.35);border-color:#D6D2C9}
+.card__body{padding:22px 22px 24px;display:flex;flex-direction:column;gap:12px;flex:1}
+.card__body .small{margin-top:auto}
+
+/* --- research list ---------------------------------------- */
+.filters{display:flex;flex-wrap:wrap;gap:10px;padding-bottom:clamp(20px,3vw,32px);border-bottom:1px solid var(--line)}
+.chip{min-height:38px;padding:0 16px;border-radius:var(--r-pill);border:1px solid #DCD8D0;background:none;
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--bg)}
+.entry{display:flex;flex-wrap:wrap;gap:20px clamp(28px,4vw,48px);padding:clamp(24px,3vw,36px) 0;
+  border-bottom:1px solid var(--line-2);align-items:flex-start;transition:opacity .16s ease}
+.entry:hover{opacity:.78}
+.entry__media{flex:0 1 260px;min-width:200px}
+.entry__media .ph{border-radius:14px}
+.entry__text{flex:1 1 400px;min-width:0}
+.entry[hidden]{display:none}
+
+/* --- education rows --------------------------------------- */
+.cv-row{display:flex;flex-wrap:wrap;gap:8px 32px;padding:22px 0;border-bottom:1px solid var(--line-2)}
+.cv-row .years{flex:0 0 140px;font-family:var(--mono);font-size:13px;color:var(--muted-2);padding-top:3px}
+.cv-row .body{flex:1 1 320px;min-width:0}
+.cv-row .note{flex:1 1 220px;font-size:14.5px;color:var(--muted);line-height:1.55}
+
+/* --- project detail page ---------------------------------- */
+.doc-section{display:flex;flex-wrap:wrap;gap:16px clamp(32px,5vw,72px);
+  padding:clamp(40px,5vw,72px) 0;border-bottom:1px solid var(--line-2)}
+.doc-section__head{flex:0 1 200px;min-width:160px}
+.doc-section__head h2{font-size:clamp(24px,2.4vw,30px);line-height:1.15;position:sticky;top:92px}
+.doc-section__head .num{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--faint);display:block;margin-bottom:8px}
+.doc-section__body{flex:1 1 460px;min-width:0;max-width:68ch}
+.doc-section__body p{font-size:clamp(16px,1.25vw,17.5px);line-height:1.72;color:var(--ink-2)}
+.doc-section__body p + p{margin-top:18px;color:var(--muted)}
+figure{margin:28px 0 0}
+figcaption{font-size:13.5px;line-height:1.5;color:var(--muted-2);margin-top:12px}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:24px 32px;
+  padding:clamp(32px,4vw,52px) 0 clamp(8px,1vw,16px);border-bottom:1px solid var(--line)}
+.facts p:last-child{font-size:15.5px;line-height:1.5;color:#2A2925;margin-bottom:clamp(24px,3vw,36px)}
+
+/* --- interests -------------------------------------------- */
+.interest{display:flex;flex-direction:column;gap:12px;padding-top:18px;border-top:1px solid var(--ink)}
+.interest h3{font-size:22px;line-height:1.25}
+.interest .num{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--muted-2)}
+
+/* --- contact + footer ------------------------------------- */
+.contact-h{font-size:clamp(30px,4.4vw,54px);line-height:1.1;letter-spacing:-.02em;margin-bottom:20px}
+.mail{font-family:var(--mono);font-size:clamp(15px,1.6vw,19px);color:var(--accent);
+  border-bottom:1px solid currentColor;padding-bottom:3px}
+.links{flex:0 1 240px;display:flex;flex-direction:column;gap:10px}
+.links a{display:flex;justify-content:space-between;align-items:center;min-height:44px;
+  border-top:1px solid var(--line);font-size:15px;color:#2A2925}
+.links .ext{color:var(--faint)}
+.site-foot{border-top:1px solid var(--line)}
+.site-foot .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-between;
+  padding-top:24px;padding-bottom:24px;font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;color:var(--muted-2)}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
+@media print{.site-head,.filters,.btn-row{display:none}body{background:#fff}}
