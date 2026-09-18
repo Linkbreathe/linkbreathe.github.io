@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Project Two Title Goes Here, One Line If Possible — Wei Xiong</title>
+<title>Adaptive XR: From Exposure Therapy to Restorative Environments — Wei Xiong</title>
 <meta name="robots" content="noindex, nofollow, noarchive" />
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-C4GPY54EQ3"></script>
@@ -13,7 +13,7 @@
   gtag('js', new Date());
   gtag('config', 'G-C4GPY54EQ3');
 </script>
-<meta name="description" content="Project write-up: Project Two Title Goes Here, One Line If Possible" />
+<meta name="description" content="A closed-loop XR prototype linking PPG, Lab Streaming Layer, and Unity with a natural-scene testbed for future restorative adaptation." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&family=Schibsted+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -29,29 +29,36 @@
 <main class="wrap">
 
   <section style="padding:clamp(44px,7vw,88px) 0 clamp(28px,4vw,44px)">
-    <p class="eyebrow" style="margin-bottom:22px">Empirical Study &middot; 2025</p>
-    <h1 style="margin-bottom:24px;max-width:26ch">Project Two Title Goes Here, One Line If Possible</h1>
-    <p style="font-size:clamp(17px,1.5vw,21px);line-height:1.55;color:#4A4844;max-width:60ch">A one-sentence subtitle that states the contribution: what you built, who you studied, and what changed as a result.</p>
+    <p class="eyebrow" style="margin-bottom:22px">Adaptive XR · Systems prototype · 2025–26</p>
+    <h1 style="margin-bottom:24px;max-width:26ch">Adaptive XR: From Exposure Therapy to Restorative Environments</h1>
+    <p style="font-size:clamp(17px,1.5vw,21px);line-height:1.55;color:#4A4844;max-width:60ch">A Phase 1 closed-loop VR system linking PPG, Lab Streaming Layer, and Unity to adapt a virtual spider’s distance, with a natural-scene testbed for future restorative XR.</p>
   </section>
 
-  <div class="ph ph--hero"><span>hero image &mdash; 16:9, 2400px wide (system screenshot or study photo)</span></div>
+  <div class="project-video-embed" role="region" aria-label="Heart-rate-adaptive virtual reality exposure therapy video">
+    <iframe src="https://drive.google.com/file/d/1fg80mfwwwjK2ditTE78S7yAq_XzcIfDj/preview" title="Heart-rate-adaptive virtual reality exposure therapy prototype" allow="autoplay; fullscreen" allowfullscreen></iframe>
+  </div>
+  <p class="project-video-note">Video preview hosted on <a href="https://drive.google.com/file/d/1fg80mfwwwjK2ditTE78S7yAq_XzcIfDj/view?usp=sharing" target="_blank" rel="noopener">Google Drive <span class="ext">&#8599;</span></a></p>
 
   <section class="facts">
     <div>
       <p class="label" style="margin-bottom:10px">Role</p>
-      <p>First author &mdash; system design, study, analysis</p>
+      <p>System design · Unity HDRP · adaptive control</p>
     </div>
     <div>
-      <p class="label" style="margin-bottom:10px">Collaborators</p>
-      <p>Name, Name &middot; Advisor: Name</p>
+      <p class="label" style="margin-bottom:10px">Input</p>
+      <p>Custom PPG streamed through Lab Streaming Layer</p>
     </div>
     <div>
-      <p class="label" style="margin-bottom:10px">Timeline</p>
-      <p>Jan 2026 &mdash; Aug 2026</p>
+      <p class="label" style="margin-bottom:10px">Output</p>
+      <p>Real-time spider distance and bounded exposure intensity</p>
+    </div>
+    <div>
+      <p class="label" style="margin-bottom:10px">Supervisor</p>
+      <p><a class="fact-link" href="https://www.au.dk/en/show/person/pengyuan.zhou%40ece.au.dk" target="_blank" rel="noopener noreferrer">Peng Yuan Zhou <span class="ext">&#8599;</span></a></p>
     </div>
     <div>
       <p class="label" style="margin-bottom:10px">Status</p>
-      <p>Under review, CHI 2027</p>
+      <p>Phase 1 proof-of-concept · not a clinical study</p>
     </div>
   </section>
 
@@ -60,85 +67,94 @@
       <h2><span class="num">01</span>Overview</h2>
     </div>
     <div class="doc-section__body">
-      <p>Two or three sentences a busy reader could stop at and still understand the work: the problem, what you made, and the headline result.</p>
-      <p>Keep this paragraph free of jargon. Everything below can go deeper.</p>
-    </div>
-  </section>
-  <section class="doc-section">
-    <div class="doc-section__head">
-      <h2><span class="num">02</span>Background &amp; motivation</h2>
-    </div>
-    <div class="doc-section__body">
-      <p>What is broken today, and why existing approaches do not solve it. Cite prior work sparingly and in plain language.</p>
-      <p>End with the specific research question this project answers.</p>
+      <p>Adaptive XR treats the virtual environment as a closed loop: physiological signals are streamed into the runtime, converted into an interpretable state proxy, and used to adjust the scene while semantic events are logged for later analysis.</p>
+      <p>This project begins with a controlled spider exposure sandbox as a Phase 1 engineering testbed. It establishes the infrastructure before intelligence: stable rendering, synchronized sensing, and participant-controllable adaptation, rather than evidence of therapeutic efficacy.</p>
       <figure>
-        <div class="ph ph--fig"><span>diagram &mdash; problem framing, 16:9</span></div>
-        <figcaption>Figure caption &mdash; describe what the reader should notice, not what the image contains.</figcaption>
+        <img class="project-img project-img--detail" src="../assets/images/vret-participant-ppg.png" alt="Participant seated with one hand on the PPG sensor and a head-mounted display in use" />
+        <figcaption>Participant seated with one hand on the PPG sensor and the HMD in use.</figcaption>
       </figure>
     </div>
   </section>
   <section class="doc-section">
     <div class="doc-section__head">
-      <h2><span class="num">03</span>Method &amp; system</h2>
+      <h2><span class="num">02</span>System architecture</h2>
     </div>
     <div class="doc-section__body">
-      <p>Describe the artifact: architecture, interaction model, key design decisions and the trade-offs behind them.</p>
-      <p>If there is a novel technique, give it one short paragraph and one figure rather than a wall of text.</p>
+      <p>The prototype connects three subsystems: a high-fidelity Unity HDRP environment, a real-time custom PPG pipeline streamed through Lab Streaming Layer, and an adaptive control engine that maps a heart-rate proxy to stimulus parameters.</p>
+      <p>The resulting loop is explicit and auditable: <em>PPG stream → online heart-rate estimate → normalized control variable → spider distance → semantic event log</em>. Keeping these stages visible makes it possible to reason about timing, reliability, and user control.</p>
+    </div>
+  </section>
+  <section class="doc-section">
+    <div class="doc-section__head">
+      <h2><span class="num">03</span>Adaptive control</h2>
+    </div>
+    <div class="doc-section__body">
+      <p>The spider’s target distance is controlled through an interpretable, bounded mapping from the heart-rate proxy. Lower-arousal proxy values allow the spider to approach, while higher values trigger a protective retreat. The controller smooths and clamps the signal so that adaptation remains continuous rather than jump-like.</p>
+      <p>Key interaction safeguards include a stable minimum and maximum intensity, continuous NavMesh movement, and participant controls for pausing, overriding, or leaving the scenario. The heart-rate proxy is used to test responsiveness, not as a complete inference of fear or emotion.</p>
       <figure>
-        <div class="ph ph--fig"><span>system diagram or UI walkthrough &mdash; 16:9</span></div>
-        <figcaption>Figure caption &mdash; describe what the reader should notice, not what the image contains.</figcaption>
+        <img class="project-img project-img--detail" src="../assets/images/vret-hyperscanner-ppg.png" alt="Hyperscanner with PPG hardware at the Center for Ear-EEG" />
+        <figcaption>Hyperscanner with the PPG hardware, photographed at the Center for Ear-EEG.</figcaption>
       </figure>
     </div>
   </section>
   <section class="doc-section">
     <div class="doc-section__head">
-      <h2><span class="num">04</span>Study &amp; evaluation</h2>
+      <h2><span class="num">04</span>Engineering validation</h2>
     </div>
     <div class="doc-section__body">
-      <p>Participants, task, conditions, measures. One paragraph is usually enough at portfolio depth.</p>
-      <p>Say why this design was the right way to test the claim.</p>
+      <p>The Phase 1 validation focused on functional feasibility: stable LSL-to-Unity streaming, continuous spider navigation without visible teleportation, and bidirectional approach–retreat behaviour under changing physiological input.</p>
+      <p>The engineering work also addressed practical failure modes such as sample-rate mismatch, peak overcounting, adaptive-threshold instability, and closed-loop latency. The result supports the claim that the system can run and adapt in real time; it does not establish clinical effectiveness.</p>
     </div>
   </section>
   <section class="doc-section">
     <div class="doc-section__head">
-      <h2><span class="num">05</span>Results</h2>
+      <h2><span class="num">05</span>Adaptive Restorative XR</h2>
     </div>
     <div class="doc-section__body">
-      <p>Lead with the finding, then the evidence. Quantitative effects with direction and magnitude; qualitative themes with one short quote each.</p>
-      <p>Close with limitations and what you would do next &mdash; reviewers read this as maturity.</p>
-      <figure>
-        <div class="ph ph--fig"><span>results chart &mdash; 16:9</span></div>
-        <figcaption>Figure caption &mdash; describe what the reader should notice, not what the image contains.</figcaption>
-      </figure>
+      <p>Alongside the spider exposure sandbox, I developed a natural-scene environment as an additional testbed for Adaptive Restorative XR. This extends the project from regulating threat intensity to exploring how adaptive environments might support calmer and more restorative states.</p>
+      <div class="project-video-embed" role="region" aria-label="Natural-scene Adaptive Restorative XR video">
+        <iframe src="https://drive.google.com/file/d/1Pt8ksNXjzPCHZeXEHZkajBM5nXpwVdKH/preview" title="Natural-scene Adaptive Restorative XR testbed" allow="autoplay; fullscreen" allowfullscreen></iframe>
+      </div>
+      <p class="project-video-note">Natural-scene demo hosted on <a href="https://drive.google.com/file/d/1Pt8ksNXjzPCHZeXEHZkajBM5nXpwVdKH/view?usp=sharing" target="_blank" rel="noopener">Google Drive <span class="ext">&#8599;</span></a></p>
+      <p>The scene is not presented as a validated restorative intervention. It is a forward-looking environment for testing how multimodal physiological input could modulate lighting, atmosphere, and other environmental cues in real time.</p>
+    </div>
+  </section>
+  <section class="doc-section">
+    <div class="doc-section__head">
+      <h2><span class="num">06</span>Limitations and future work</h2>
+    </div>
+    <div class="doc-section__body">
+      <p>The current prototype relies on a lightweight peak-detection method for the PPG signal, so BPM estimates remain vulnerable to motion artefacts and changes in sensor contact. A transient error in the physiological input can therefore lead to a momentary mismatch between the participant’s state and the virtual response.</p>
+      <p>Because the interaction maps heart rate to exposure intensity through a single physiological dimension, it does not account for user-specific baseline differences, recovery patterns, or system latency. The spider’s behaviour should be read as a bounded response to one noisy signal, not as a complete representation of the participant’s complex emotional state.</p>
+      <p>Future work will combine PPG with GSR/EDA and ear-EEG, add personalized calibration and low-latency streaming inference, and improve robustness to motion artefacts through learned denoising. The natural-scene testbed provides a second environment in which to explore these multimodal, restorative adaptations.</p>
     </div>
   </section>
 
-  <section class="doc-section" style="display:block">
-    <div class="row row--between" style="margin-bottom:clamp(20px,3vw,32px)">
-      <h2 style="font-size:clamp(24px,2.4vw,30px)">Gallery</h2>
-      <p class="label" style="color:var(--faint)">06</p>
+  <section class="doc-section tech-stack">
+    <div class="doc-section__head">
+      <h2><span class="num">07</span>Tech Stack</h2>
     </div>
-    <div class="grid grid--gallery">
-      <div class="ph ph--tile"><span>gallery 01 &mdash; 4:3</span></div>
-      <div class="ph ph--tile"><span>gallery 02 &mdash; 4:3</span></div>
-      <div class="ph ph--tile"><span>gallery 03 &mdash; 4:3</span></div>
-      <div class="ph ph--tile"><span>gallery 04 &mdash; 4:3</span></div>
+    <div class="doc-section__body">
+      <div class="tech-stack-list">
+        <div class="tech-stack-item"><p class="label">Development</p><p>Python, C# for Unity integration, PowerShell, and Windows command-line launch scripts</p></div>
+        <div class="tech-stack-item"><p class="label">Physiology</p><p>Custom PPG streaming, online heart-rate estimation, Lab Streaming Layer, and synchronized semantic event logging</p></div>
+        <div class="tech-stack-item"><p class="label">XR / control</p><p>Unity HDRP, AI Navigation / NavMesh, interpretable adaptive control, bounded intensity changes, and participant controls</p></div>
+        <div class="tech-stack-item"><p class="label">Future direction</p><p>Multimodal PPG, GSR/EDA, ear-EEG, personalized state modelling, and low-latency streaming inference</p></div>
+      </div>
     </div>
   </section>
 
   <section style="padding:clamp(40px,5vw,72px) 0 clamp(56px,7vw,96px)">
     <h2 style="font-size:clamp(24px,2.4vw,30px);margin-bottom:22px">Links</h2>
     <div class="btn-row">
-      <a class="btn btn--solid" href="../assets/files/paper.pdf">Paper <span class="tag">PDF</span></a>
-      <a class="btn" href="#">Code <span class="ext">&#8599;</span></a>
-      <a class="btn" href="#">Demo <span class="ext">&#8599;</span></a>
-      <a class="btn" href="#">Video <span class="ext">&#8599;</span></a>
+      <a class="btn" href="https://github.com/Linkbreathe/Relax-Model">Source repository <span class="ext">&#8599;</span></a>
+      <a class="btn btn--solid" href="../index.html#contact">Contact for materials <span class="ext">&rarr;</span></a>
     </div>
   </section>
 
   <nav class="row row--between" style="border-top:1px solid var(--line);padding:clamp(28px,4vw,44px) 0">
     <a href="../research.html" style="color:var(--muted)">&larr; All research</a>
-    <a href="project-3.html" style="color:var(--muted)">Next project &rarr;</a>
+    <a href="project-4.html" style="color:var(--muted)">Next project &rarr;</a>
   </nav>
 </main>
 <footer class="site-foot">
@@ -147,6 +163,6 @@
     <span>Last updated September 2026</span>
   </div>
 </footer>
-<script src="../js/main.js"></script>
+<script src="../js/main.js?v=20260918"></script>
 </body>
 </html>

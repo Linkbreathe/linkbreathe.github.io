@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Linki-Agent-I: A Terminal Multi-Agent Coding Assistant — Wei Xiong</title>
+<meta name="robots" content="noindex, nofollow, noarchive" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-C4GPY54EQ3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-C4GPY54EQ3');
+</script>
+<meta name="description" content="Linki-Agent-I is a terminal-based multi-agent coding assistant exploring planning, tool use, memory, and verification." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&family=Schibsted+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+<header class="site-head">
+  <div class="wrap">
+    <a class="backlink" href="../research.html"><span>&larr;</span> Back to Research</a>
+    <a class="wordmark" style="margin-right:0" href="../index.html">Wei Xiong</a>
+  </div>
+</header>
+<main class="wrap">
+
+  <section style="padding:clamp(44px,7vw,88px) 0 clamp(28px,4vw,44px)">
+    <p class="eyebrow" style="margin-bottom:22px">AI · Independent project · Open-source prototype</p>
+    <h1 style="margin-bottom:24px;max-width:26ch">Linki-Agent-I: A Terminal Multi-Agent Coding Assistant</h1>
+    <p style="font-size:clamp(17px,1.5vw,21px);line-height:1.55;color:#4A4844;max-width:60ch">A Python terminal assistant that turns natural-language tasks into a visible plan, delegates research and implementation, and verifies the result inside a scoped workspace.</p>
+  </section>
+
+  <img class="project-img project-img--hero project-img--overview" src="../assets/images/linki-agent-i-stage-02.png" alt="Linki terminal cockpit showing a live plan and activity feed" />
+
+  <section class="facts">
+    <div>
+      <p class="label" style="margin-bottom:10px">Role</p>
+      <p>System architecture · implementation · workflow design</p>
+    </div>
+    <div>
+      <p class="label" style="margin-bottom:10px">Category</p>
+      <p>AI tooling · agentic systems</p>
+    </div>
+    <div>
+      <p class="label" style="margin-bottom:10px">Core ideas</p>
+      <p>Planning, delegation, tool use, memory, verification</p>
+    </div>
+    <div>
+      <p class="label" style="margin-bottom:10px">Supervisor</p>
+      <p><a class="fact-link" href="https://github.com/Linkbreathe/Linki-Agent-I" target="_blank" rel="noopener noreferrer">Self-directed <span class="ext">&#8599;</span></a></p>
+    </div>
+    <div>
+      <p class="label" style="margin-bottom:10px">Status</p>
+      <p>Open-source research prototype</p>
+    </div>
+  </section>
+
+  <section class="doc-section">
+    <div class="doc-section__head">
+      <h2><span class="num">01</span>Overview</h2>
+    </div>
+    <div class="doc-section__body">
+      <p>Linki-Agent-I is a multi-agent coding assistant that runs in the terminal. A user gives it a natural-language task; the system decides whether the request is a quick conversation or a real workspace task, then plans, delegates, executes, and checks the work.</p>
+      <p>The project is an exploration of how an agent can remain useful without becoming a black box. Its live plan, activity feed, approvals, checkpoints, and recovery notes make the system’s state visible while it works.</p>
+    </div>
+  </section>
+  <section class="doc-section">
+    <div class="doc-section__head">
+      <h2><span class="num">02</span>Motivation</h2>
+    </div>
+    <div class="doc-section__body">
+      <p>Terminal coding agents combine language-model reasoning with actions that can change files or run commands. That makes orchestration and boundaries part of the interaction design, not just implementation details.</p>
+      <p>Linki-Agent-I explores a workflow where the user can follow the plan, approve risky actions, resume an interrupted run, and see when a verifier sends work back for another attempt.</p>
+      <figure>
+        <div class="framing-flow" role="img" aria-label="Linki workflow from user request through planning, specialist agents, and verification">
+          <div class="framing-step"><span class="framing-step__num">01</span><strong>Request</strong><span>Natural-language task</span></div>
+          <span class="framing-arrow">&rarr;</span>
+          <div class="framing-step"><span class="framing-step__num">02</span><strong>Plan &amp; route</strong><span>Chat or workspace task</span></div>
+          <span class="framing-arrow">&rarr;</span>
+          <div class="framing-step"><span class="framing-step__num">03</span><strong>Delegate</strong><span>Research + code agents</span></div>
+          <span class="framing-arrow">&rarr;</span>
+          <div class="framing-step"><span class="framing-step__num">04</span><strong>Verify</strong><span>Retry or report</span></div>
+        </div>
+        <figcaption>The workflow keeps planning, action, and verification as separate stages that can be inspected during a run.</figcaption>
+      </figure>
+    </div>
+  </section>
+  <section class="doc-section">
+    <div class="doc-section__head">
+      <h2><span class="num">03</span>System design</h2>
+    </div>
+    <div class="doc-section__body">
+      <p>An intent router first separates quick chat from task execution. For workspace tasks, a planner or supervisor publishes a dynamic checklist and delegates to two specialised agents: a search agent for web research and a code agent for implementation through workspace-scoped file and shell tools.</p>
+      <p>A context monitor can compress long histories, while a verifier checks the result against acceptance criteria and verification commands. Failed checks return the task to the planner for another bounded attempt.</p>
+      <figure>
+        <img class="project-img project-img--figure project-img--overview" src="../assets/images/linki-agent-i-architecture.png" alt="Linki-Agent-I workflow and system architecture showing routing, agents, verification, memory, skills, hooks, and recovery" loading="lazy" />
+        <figcaption>The architecture connects the main plan–execute–verify loop with the experimental swarm and supporting systems that make long-running work recoverable.</figcaption>
+      </figure>
+    </div>
+  </section>
+  <section class="doc-section">
+    <div class="doc-section__head">
+      <h2><span class="num">04</span>Control and recovery</h2>
+    </div>
+    <div class="doc-section__body">
+      <p>Each run starts in a fresh timestamped workspace, so separate tasks do not overwrite one another. Checkpoints use a shadow Git repository and a recovery note, allowing an interrupted run to be resumed from its latest known state.</p>
+      <p>Risky shell commands can pause for inline approval, run automatically, or be denied. This gives the assistant an explicit operating boundary instead of treating every tool call as equally safe.</p>
+    </div>
+  </section>
+  <section class="doc-section">
+    <div class="doc-section__head">
+      <h2><span class="num">05</span>Reflection</h2>
+    </div>
+    <div class="doc-section__body">
+      <p>Linki-Agent-I has sharpened my interest in the relationship between agent autonomy and user control. A system can take on more of the execution burden while still exposing its plan, decisions, tool activity, and uncertainty.</p>
+      <p>That concern connects to my work on adaptive XR: in both settings, the important boundary is not only what the system can sense or do, but whether a person can understand, interrupt, and recover from its behaviour.</p>
+    </div>
+  </section>
+
+  <section class="doc-section tech-stack">
+    <div class="doc-section__head">
+      <h2><span class="num">07</span>Tech Stack</h2>
+    </div>
+    <div class="doc-section__body">
+      <div class="tech-stack-list">
+        <div class="tech-stack-item"><p class="label">Language / tooling</p><p>Python 3.10+, uv or pip, Typer, Rich, Pydantic, python-dotenv, and PyYAML</p></div>
+        <div class="tech-stack-item"><p class="label">Orchestration</p><p>LangGraph, planner / supervisor nodes, bounded retry, and streamed workflow events</p></div>
+        <div class="tech-stack-item"><p class="label">Agent capabilities</p><p>Workspace-scoped file and shell tools, Tavily web research, checkpoints, and multi-turn sessions</p></div>
+        <div class="tech-stack-item"><p class="label">Interfaces / providers</p><p>Classic CLI, Textual cockpit TUI, and OpenAI-compatible model providers including OpenAI and DeepSeek</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="doc-section" style="display:block">
+    <div class="row row--between" style="margin-bottom:clamp(20px,3vw,32px)">
+      <h2 style="font-size:clamp(24px,2.4vw,30px)">A run in seven stages</h2>
+      <p class="label" style="color:var(--faint)">RUN</p>
+    </div>
+    <div class="grid grid--gallery">
+      <figure>
+        <img class="project-img project-img--tile project-img--overview" src="../assets/images/linki-agent-i-stage-01.png" alt="Linki asking the user to clarify the desired website format" loading="lazy" />
+        <figcaption>01 · Clarifying the request before work begins.</figcaption>
+      </figure>
+      <figure>
+        <img class="project-img project-img--tile project-img--overview" src="../assets/images/linki-agent-i-stage-02.png" alt="Linki creating a plan and loading the conventional-commit skill" loading="lazy" />
+        <figcaption>02 · Turning the clarified request into a visible plan.</figcaption>
+      </figure>
+      <figure>
+        <img class="project-img project-img--tile project-img--overview" src="../assets/images/linki-agent-i-stage-03.png" alt="Linki writing files while the code agent works through the plan" loading="lazy" />
+        <figcaption>03 · Implementing the task with tool activity shown in context.</figcaption>
+      </figure>
+      <figure>
+        <img class="project-img project-img--tile project-img--overview" src="../assets/images/linki-agent-i-stage-04.png" alt="Linki pausing on an approval screen for a network download command" loading="lazy" />
+        <figcaption>04 · Pausing for human approval when a command crosses a risk boundary.</figcaption>
+      </figure>
+      <figure>
+        <img class="project-img project-img--tile project-img--overview" src="../assets/images/linki-agent-i-stage-05.png" alt="Linki showing an approved tool call and its visible execution outcome" loading="lazy" />
+        <figcaption>05 · Keeping approval and a failed tool outcome visible instead of hiding the interruption.</figcaption>
+      </figure>
+      <figure>
+        <img class="project-img project-img--tile project-img--overview" src="../assets/images/linki-agent-i-stage-06.png" alt="Linki reading files and checking the implementation during verification" loading="lazy" />
+        <figcaption>06 · Inspecting the result with file reads and targeted checks.</figcaption>
+      </figure>
+      <figure>
+        <img class="project-img project-img--tile project-img--overview" src="../assets/images/linki-agent-i-stage-07.png" alt="Linki showing a passed verifier and final answer" loading="lazy" />
+        <figcaption>07 · Finishing with a passed verifier, trace, and concise final report.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section style="padding:clamp(40px,5vw,72px) 0 clamp(56px,7vw,96px)">
+    <h2 style="font-size:clamp(24px,2.4vw,30px);margin-bottom:22px">Links</h2>
+    <div class="btn-row">
+      <a class="btn btn--solid" href="https://github.com/Linkbreathe/Linki-Agent-I" target="_blank" rel="noopener noreferrer">Source repository <span class="ext">&#8599;</span></a>
+      <a class="btn" href="../index.html#contact">Contact for project details <span class="ext">&rarr;</span></a>
+    </div>
+  </section>
+
+  <nav class="row row--between" style="border-top:1px solid var(--line);padding:clamp(28px,4vw,44px) 0">
+    <a href="project-7.html" style="color:var(--muted)">&larr; Previous project</a>
+    <a href="../research.html" style="color:var(--muted)">All research &rarr;</a>
+  </nav>
+</main>
+<footer class="site-foot">
+  <div class="wrap">
+    <span>&copy; <span data-year>2026</span> Wei Xiong</span>
+    <span>Last updated September 2026</span>
+  </div>
+</footer>
+<script src="../js/main.js?v=20260918"></script>
+</body>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Uicycle: EL-Display Jacket for Safer Cycling — Wei Xiong</title>
+<meta name="robots" content="noindex, nofollow, noarchive" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-C4GPY54EQ3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-C4GPY54EQ3');
+</script>
+<meta name="description" content="An EIT team project in interactive hardware, physical computing, and prototyping." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&family=Schibsted+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+<header class="site-head">
+  <div class="wrap">
+    <a class="backlink" href="../research.html"><span>&larr;</span> Back to Research</a>
+    <a class="wordmark" style="margin-right:0" href="../index.html">Wei Xiong</a>
+  </div>
+</header>
+<main class="wrap">
+
+  <section style="padding:clamp(44px,7vw,88px) 0 clamp(28px,4vw,44px)">
+    <p class="eyebrow" style="margin-bottom:22px">Hardware · Coursework · Team project</p>
+    <h1 style="margin-bottom:24px;max-width:26ch">Uicycle: EL-Display Jacket for Safer Cycling</h1>
+    <p style="font-size:clamp(17px,1.5vw,21px);line-height:1.55;color:#4A4844;max-width:60ch">Uicycle is an EL-display jacket and bicycle-mounted sensing system that makes cyclist actions more visible in low-light conditions through responsive illumination.</p>
+  </section>
+
+  <img class="project-media project-media--hero" src="../assets/images/eit-uicycle-hero.jpg" alt="A cyclist testing the Uicycle prototype in a dim tunnel, with the collar display illuminated" />
+
+  <section class="facts">
+    <div>
+      <p class="label" style="margin-bottom:10px">Role</p>
+      <p>Hardware construction · sensor integration</p>
+    </div>
+    <div>
+      <p class="label" style="margin-bottom:10px">Category</p>
+      <p>Wearable and embedded interaction</p>
+    </div>
+    <div>
+      <p class="label" style="margin-bottom:10px">Format</p>
+      <p>Team and course project</p>
+    </div>
+    <div>
+      <p class="label" style="margin-bottom:10px">Supervisor</p>
+      <p><a class="fact-link" href="https://cs.au.dk/~michaelwessely/" target="_blank" rel="noopener noreferrer">Michael Wessely <span class="ext">&#8599;</span></a></p>
+    </div>
+    <div>
+      <p class="label" style="margin-bottom:10px">Status</p>
+      <p>Course prototype</p>
+    </div>
+  </section>
+
+  <section class="doc-section">
+    <div class="doc-section__head">
+      <h2><span class="num">01</span>Overview</h2>
+    </div>
+    <div class="doc-section__body">
+      <p>Uicycle explored how a bicycle and a jacket could communicate a cyclist’s actions when visibility is limited, especially at night or in poor weather. The prototype combined capacitive input, brake-pressure sensing, and illuminated elements placed on the jacket and bike.</p>
+      <p>It is listed as a team/course project so that the scope and authorship remain clear. This page focuses on my contribution to construction, sensor integration, calibration, and system optimisation.</p>
+    </div>
+  </section>
+  <section class="doc-section">
+    <div class="doc-section__head">
+      <h2><span class="num">02</span>Motivation</h2>
+    </div>
+    <div class="doc-section__body">
+      <p>For cyclists, a turn or braking action can be difficult for others to see in low-light conditions. The project therefore focused on an intuitive interaction that could communicate intent without adding a separate study burden or requiring the rider to look away from the road.</p>
+      <p>The design connected physical actions to visible feedback: handlebar input and braking were translated into illuminated signals on the jacket and bicycle.</p>
+      <figure>
+        <img class="project-media project-media--figure" src="../assets/images/eit-uicycle-brake-schematic.png" alt="Illustrated brake lever and sensor concept for the bicycle prototype" loading="lazy" />
+        <figcaption>The brake-sensing concept links a physical input to a visible response that other road users can perceive.</figcaption>
+      </figure>
+    </div>
+  </section>
+  <section class="doc-section">
+    <div class="doc-section__head">
+      <h2><span class="num">03</span>Prototype work</h2>
+    </div>
+    <div class="doc-section__body">
+      <p>My work involved constructing and optimising the prototype, integrating the force sensor and capacitive inputs, contributing to the PCB and clothing assembly, and calibrating the sensing baseline.</p>
+      <p>The prototype used an ESP32 to connect the sensing and feedback components, with Bluetooth supporting communication between the system parts. Iteration exposed practical issues such as sensor reliability, timing, and the fit between components and clothing.</p>
+      <figure>
+        <img class="project-media project-media--figure" src="../assets/images/eit-uicycle-bike.png" alt="Bicycle handlebar prototype with illuminated grips and wiring" loading="lazy" />
+        <figcaption>The bicycle-mounted prototype connected the handlebar interaction to the system’s visible feedback.</figcaption>
+      </figure>
+    </div>
+  </section>
+  <section class="doc-section">
+    <div class="doc-section__head">
+      <h2><span class="num">04</span>Evaluation focus</h2>
+    </div>
+    <div class="doc-section__body">
+      <p>The project was evaluated through prototype testing and iteration, with attention to responsiveness, physical usability, and whether the system’s signals were understandable from the cyclist’s and observer’s points of view.</p>
+      <p>A key challenge was that capacitive sensing could distinguish touch from no-touch, but did not directly measure pressure. This shaped the later exploration of force sensing for braking.</p>
+    </div>
+  </section>
+  <section class="doc-section">
+    <div class="doc-section__head">
+      <h2><span class="num">05</span>Reflection</h2>
+    </div>
+    <div class="doc-section__body">
+      <p>The project strengthened my appreciation for the gap between detecting an action and designing a reliable interaction around that signal. Hardware work makes latency, noise, placement, calibration, and repair visible very quickly.</p>
+      <p>That perspective is useful in my current work with physiological sensing: the quality of an intelligent system depends not only on its model, but also on how a signal is collected and how its consequences reach the user.</p>
+      <figure>
+        <img class="project-media project-media--figure" src="../assets/images/eit-uicycle-signal-layout.jpg" alt="Annotated bicycle signal layout showing the relationship between the handlebars and the control module" loading="lazy" />
+        <figcaption>The prototype made the relationship between sensing quality and interaction quality tangible.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="doc-section tech-stack">
+    <div class="doc-section__head">
+      <h2><span class="num">06</span>Tech Stack</h2>
+    </div>
+    <div class="doc-section__body">
+      <div class="tech-stack-list">
+        <div class="tech-stack-item"><p class="label">Embedded hardware</p><p>ESP32, custom PCB, Bluetooth communication, and control electronics</p></div>
+        <div class="tech-stack-item"><p class="label">Sensing</p><p>Force sensor for braking input, capacitive sensors for handlebar interaction, and baseline calibration</p></div>
+        <div class="tech-stack-item"><p class="label">Feedback</p><p>EL displays/panels integrated into the jacket and bicycle for visible turn and braking signals</p></div>
+        <div class="tech-stack-item"><p class="label">Prototyping</p><p>3D-printed parts, sponge cushioning, clothing assembly, PCB design, and iterative testing</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="doc-section" style="display:block">
+    <div class="row row--between" style="margin-bottom:clamp(20px,3vw,32px)">
+      <h2 style="font-size:clamp(24px,2.4vw,30px)">Visual materials</h2>
+      <p class="label" style="color:var(--faint)">07</p>
+    </div>
+    <div class="grid grid--gallery">
+      <img class="project-media project-media--tile" src="../assets/images/eit-uicycle-jacket-placement.png" alt="Concept diagram showing the planned EL-display placement on the jacket" loading="lazy" />
+      <img class="project-media project-media--tile" src="../assets/images/eit-uicycle-jacket.png" alt="Prototype jacket with illuminated panels attached to the back and sleeves" loading="lazy" />
+      <img class="project-media project-media--tile" src="../assets/images/eit-uicycle-electronics.png" alt="ESP32 board and connected electronics for the bicycle prototype" loading="lazy" />
+      <img class="project-media project-media--tile" src="../assets/images/eit-uicycle-bike.png" alt="Bicycle-mounted prototype with illuminated handlebar elements" loading="lazy" />
+      <img class="project-media project-media--tile" src="../assets/images/eit-uicycle-signal-layout.jpg" alt="Concept illustration of the prototype’s bicycle signal layout" loading="lazy" />
+      <img class="project-media project-media--tile" src="../assets/images/eit-uicycle-controller-board.jpg" alt="Controller board and connected components for the Uicycle prototype" loading="lazy" />
+      <img class="project-media project-media--tile" src="../assets/images/eit-uicycle-el-display-modules.jpg" alt="Three EL-display modules connected to the Uicycle controller board" loading="lazy" />
+      <img class="project-media project-media--tile" src="../assets/images/eit-uicycle-sensor-and-grips.jpg" alt="Force sensor, controller board, and illuminated bicycle grips" loading="lazy" />
+      <img class="project-media project-media--tile" src="../assets/images/eit-uicycle-control-box.jpg" alt="Control box, sensor module, and illuminated bicycle grips" loading="lazy" />
+      <a class="project-media project-media--tile project-video-link" href="https://drive.google.com/file/d/1yfA0fpnQRamTJ7BPiiEhBYW5NPovWGKr/view?usp=drive_link" target="_blank" rel="noopener noreferrer" aria-label="Open Uicycle field test video one in Google Drive">
+        <span class="project-video-link__title">Field test video 01 &rarr;</span>
+        <span class="project-video-link__meta">Open in Google Drive</span>
+      </a>
+      <a class="project-media project-media--tile project-video-link" href="https://drive.google.com/file/d/1EjsfHTqRy03Sa0iQAYxnYvZ4OFqviAfH/view?usp=drive_link" target="_blank" rel="noopener noreferrer" aria-label="Open Uicycle field test video two in Google Drive">
+        <span class="project-video-link__title">Field test video 02 &rarr;</span>
+        <span class="project-video-link__meta">Open in Google Drive</span>
+      </a>
+    </div>
+  </section>
+
+  <section style="padding:clamp(40px,5vw,72px) 0 clamp(56px,7vw,96px)">
+    <h2 style="font-size:clamp(24px,2.4vw,30px);margin-bottom:22px">Links</h2>
+    <div class="btn-row">
+      <a class="btn btn--solid" href="../index.html#contact">Contact for project details <span class="ext">&rarr;</span></a>
+    </div>
+  </section>
+
+  <nav class="row row--between" style="border-top:1px solid var(--line);padding:clamp(28px,4vw,44px) 0">
+    <a href="project-6.html" style="color:var(--muted)">&larr; Previous project</a>
+    <a href="project-8.html" style="color:var(--muted)">Next project &rarr;</a>
+  </nav>
+</main>
+<footer class="site-foot">
+  <div class="wrap">
+    <span>&copy; <span data-year>2026</span> Wei Xiong</span>
+    <span>Last updated September 2026</span>
+  </div>
+</footer>
+<script src="../js/main.js?v=20260918"></script>
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Project Four Title Goes Here, One Line If Possible — Wei Xiong</title>
+<title>3D Structure–Rotation Pairing (SRP) Task — Wei Xiong</title>
 <meta name="robots" content="noindex, nofollow, noarchive" />
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-C4GPY54EQ3"></script>
@@ -13,7 +13,7 @@
   gtag('js', new Date());
   gtag('config', 'G-C4GPY54EQ3');
 </script>
-<meta name="description" content="Project write-up: Project Four Title Goes Here, One Line If Possible" />
+<meta name="description" content="A compact XR pilot task for studying 3D structural similarity, mental rotation, multimodal responses, and sensor quality." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&family=Schibsted+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -29,29 +29,33 @@
 <main class="wrap">
 
   <section style="padding:clamp(44px,7vw,88px) 0 clamp(28px,4vw,44px)">
-    <p class="eyebrow" style="margin-bottom:22px">Workshop Paper &middot; 2023</p>
-    <h1 style="margin-bottom:24px;max-width:26ch">Project Four Title Goes Here, One Line If Possible</h1>
-    <p style="font-size:clamp(17px,1.5vw,21px);line-height:1.55;color:#4A4844;max-width:60ch">A one-sentence subtitle that states the contribution: what you built, who you studied, and what changed as a result.</p>
+    <p class="eyebrow" style="margin-bottom:22px">Perception · XR pilot · 2026</p>
+    <h1 style="margin-bottom:24px;max-width:30ch">3D Structure–Rotation Pairing (SRP) Task</h1>
+    <p style="font-size:clamp(17px,1.5vw,21px);line-height:1.55;color:#4A4844;max-width:64ch">A compact XR experiment for collecting behavioral, physiological, temporal, and sensor-quality responses while people compare 3D structures under controlled changes in similarity and rotation.</p>
   </section>
 
-  <div class="ph ph--hero"><span>hero image &mdash; 16:9, 2400px wide (system screenshot or study photo)</span></div>
+  <img class="project-img project-img--hero project-img--overview" src="../assets/images/srp-overview.png" alt="Overview of the 3D Structure–Rotation Pairing task, showing the 2 × 2 design, single-trial timeline, multimodal measurements, and simulator-calibration pathway" />
 
   <section class="facts">
     <div>
       <p class="label" style="margin-bottom:10px">Role</p>
-      <p>First author &mdash; system design, study, analysis</p>
+      <p>Researcher · task design, Unity implementation, pilot preparation</p>
     </div>
     <div>
-      <p class="label" style="margin-bottom:10px">Collaborators</p>
-      <p>Name, Name &middot; Advisor: Name</p>
+      <p class="label" style="margin-bottom:10px">Design</p>
+      <p>2 × 2 within-subjects task: structural similarity × rotation disparity</p>
     </div>
     <div>
-      <p class="label" style="margin-bottom:10px">Timeline</p>
-      <p>Jan 2026 &mdash; Aug 2026</p>
+      <p class="label" style="margin-bottom:10px">Data</p>
+      <p>Behavior, eye tracking, EEG, ECG, head motion, and sensor quality</p>
     </div>
     <div>
-      <p class="label" style="margin-bottom:10px">Status</p>
-      <p>Under review, CHI 2027</p>
+      <p class="label" style="margin-bottom:10px">Supervisor</p>
+      <p><a class="fact-link" href="https://www.au.dk/en/show/person/pengyuan.zhou%40ece.au.dk" target="_blank" rel="noopener noreferrer">Peng Yuan Zhou <span class="ext">&#8599;</span></a></p>
+    </div>
+    <div>
+      <p class="label" style="margin-bottom:10px">Stage</p>
+      <p>Pilot protocol · data collection and results pending</p>
     </div>
   </section>
 
@@ -60,85 +64,141 @@
       <h2><span class="num">01</span>Overview</h2>
     </div>
     <div class="doc-section__body">
-      <p>Two or three sentences a busy reader could stop at and still understand the work: the problem, what you made, and the headline result.</p>
-      <p>Keep this paragraph free of jargon. Everything below can go deeper.</p>
+      <p>The SRP task studies how people discriminate between 3D structures when structural relations and rotation disparity are controlled. Each trial presents a reference object followed by a comparison object, then asks the participant to respond <em>Same</em> or <em>Different</em>.</p>
+      <p>The task is deliberately small and interpretable: it creates a controlled setting in which behavioral responses, physiological signals, transition effects, and sensor failures can be measured together. The current work is a pilot protocol, not a finished population-level study.</p>
     </div>
   </section>
+
   <section class="doc-section">
     <div class="doc-section__head">
-      <h2><span class="num">02</span>Background &amp; motivation</h2>
+      <h2><span class="num">02</span>Why this experiment exists</h2>
     </div>
     <div class="doc-section__body">
-      <p>What is broken today, and why existing approaches do not solve it. Cite prior work sparingly and in plain language.</p>
-      <p>End with the specific research question this project answers.</p>
+      <p>The task is an empirical anchoring study for LBOC, a later project concerned with modelling how human responses change after an interaction or an XR action. Before a simulator can generate large numbers of virtual users, it needs realistic scales for response magnitude, delay, individual variability, and sensor degradation.</p>
+      <p>The pilot therefore treats real participants as anchors rather than templates to copy with noise. Its purpose is to measure what responses look like in a real task and use those observations to constrain the next stage of simulation.</p>
       <figure>
-        <div class="ph ph--fig"><span>diagram &mdash; problem framing, 16:9</span></div>
-        <figcaption>Figure caption &mdash; describe what the reader should notice, not what the image contains.</figcaption>
-      </figure>
-    </div>
-  </section>
-  <section class="doc-section">
-    <div class="doc-section__head">
-      <h2><span class="num">03</span>Method &amp; system</h2>
-    </div>
-    <div class="doc-section__body">
-      <p>Describe the artifact: architecture, interaction model, key design decisions and the trade-offs behind them.</p>
-      <p>If there is a novel technique, give it one short paragraph and one figure rather than a wall of text.</p>
-      <figure>
-        <div class="ph ph--fig"><span>system diagram or UI walkthrough &mdash; 16:9</span></div>
-        <figcaption>Figure caption &mdash; describe what the reader should notice, not what the image contains.</figcaption>
-      </figure>
-    </div>
-  </section>
-  <section class="doc-section">
-    <div class="doc-section__head">
-      <h2><span class="num">04</span>Study &amp; evaluation</h2>
-    </div>
-    <div class="doc-section__body">
-      <p>Participants, task, conditions, measures. One paragraph is usually enough at portfolio depth.</p>
-      <p>Say why this design was the right way to test the claim.</p>
-    </div>
-  </section>
-  <section class="doc-section">
-    <div class="doc-section__head">
-      <h2><span class="num">05</span>Results</h2>
-    </div>
-    <div class="doc-section__body">
-      <p>Lead with the finding, then the evidence. Quantitative effects with direction and magnitude; qualitative themes with one short quote each.</p>
-      <p>Close with limitations and what you would do next &mdash; reviewers read this as maturity.</p>
-      <figure>
-        <div class="ph ph--fig"><span>results chart &mdash; 16:9</span></div>
-        <figcaption>Figure caption &mdash; describe what the reader should notice, not what the image contains.</figcaption>
+        <div class="framing-flow" role="img" aria-label="Research logic: controlled task, multimodal measurements, and simulator calibration">
+          <div class="framing-step">
+            <span class="framing-step__num">01</span>
+            <strong>Control the challenge</strong>
+            <span>Structural similarity × rotation disparity</span>
+          </div>
+          <span class="framing-arrow" aria-hidden="true">&rarr;</span>
+          <div class="framing-step">
+            <span class="framing-step__num">02</span>
+            <strong>Measure the response</strong>
+            <span>Behavior · physiology · transitions · quality</span>
+          </div>
+          <span class="framing-arrow" aria-hidden="true">&rarr;</span>
+          <div class="framing-step">
+            <span class="framing-step__num">03</span>
+            <strong>Calibrate the simulator</strong>
+            <span>Ranges · variability · delays · failure patterns</span>
+          </div>
+        </div>
+        <figcaption>The pilot connects a controllable XR task to the empirical ranges needed for later virtual-human simulation.</figcaption>
       </figure>
     </div>
   </section>
 
-  <section class="doc-section" style="display:block">
-    <div class="row row--between" style="margin-bottom:clamp(20px,3vw,32px)">
-      <h2 style="font-size:clamp(24px,2.4vw,30px)">Gallery</h2>
-      <p class="label" style="color:var(--faint)">06</p>
+  <section class="doc-section">
+    <div class="doc-section__head">
+      <h2><span class="num">03</span>Task paradigm</h2>
     </div>
-    <div class="grid grid--gallery">
-      <div class="ph ph--tile"><span>gallery 01 &mdash; 4:3</span></div>
-      <div class="ph ph--tile"><span>gallery 02 &mdash; 4:3</span></div>
-      <div class="ph ph--tile"><span>gallery 03 &mdash; 4:3</span></div>
-      <div class="ph ph--tile"><span>gallery 04 &mdash; 4:3</span></div>
+    <div class="doc-section__body">
+      <p>Every trial is an independent pairing: <strong>Reference A → Comparison B → Same / Different</strong>. Participants do not need to remember a previous two-back item; the main cognitive demands are 3D structural discrimination and mental rotation.</p>
+      <p>Each object is built from four geometric parts. Structural similarity is defined by how many spatial relations between parts are preserved, rather than by raw image similarity. The task crosses low and high similarity with two rotation-disparity levels, while same-object trials are interleaved so that participants cannot solve the task by always responding “Different”.</p>
+      <ul class="case-list">
+        <li><strong>Target trials.</strong> The same object appears as A and B, so the correct response is <em>Same</em>.</li>
+        <li><strong>Non-target trials.</strong> A and B are different objects, with the pairing matrix controlling the structural relationship; the correct response is <em>Different</em>.</li>
+        <li><strong>Transition trials.</strong> Deliberately arranged condition changes make it possible to examine short-term adaptation after the task context shifts.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="doc-section">
+    <div class="doc-section__head">
+      <h2><span class="num">04</span>Session and data</h2>
+    </div>
+    <div class="doc-section__body">
+      <p>The current protocol uses four blocks of 30 scored pairing trials per participant. Each block contains four segments with an 8 / 7 / 8 / 7 structure, giving 120 trials in total. The schedule balances similarity and rotation conditions across the session, with 40 target trials and 80 non-target trials overall.</p>
+      <p>For every trial, the task records the condition, pair identity, response, accuracy, reaction time, previous condition, transition status, trials since transition, and synchronization timestamp. Where supported by the XR acquisition setup, the same timeline is aligned with gaze and pupil measures, EEG, ECG, head motion, and modality-specific quality or failure markers.</p>
+      <p>The transition structure is as important as the condition averages: a key output is the response trajectory over the first few trials after a context switch, including any delay before behavior or physiology stabilizes again.</p>
+    </div>
+  </section>
+
+  <section class="doc-section">
+    <div class="doc-section__head">
+      <h2><span class="num">05</span>What the pilot can support</h2>
+    </div>
+    <div class="doc-section__body">
+      <p>The main deliverable is a compact empirical calibration package rather than a definitive effect estimate. It is intended to describe realistic ranges and distributions for:</p>
+      <ul class="case-list">
+        <li><strong>Behavior.</strong> Accuracy, reaction time, condition sensitivity, and within- and between-participant variability.</li>
+        <li><strong>Physiology.</strong> Feature ranges, approximate temporal response, and stabilization or recovery time where a signal is usable.</li>
+        <li><strong>Transitions.</strong> The scale and time course of changes after the task context switches.</li>
+        <li><strong>Sensor quality.</strong> Tracking loss, artefact rates, missing data, noisy windows, and synchronization problems.</li>
+      </ul>
+      <p>With a small pilot sample, the project does not claim population generalizability, unique physiological meanings for any modality, or validation of closed-loop LBOC control. If a modality shows no reliable task-related difference, that uncertainty should remain visible in the simulator rather than being force-fitted.</p>
+    </div>
+  </section>
+
+  <section class="doc-section">
+    <div class="doc-section__head">
+      <h2><span class="num">06</span>From pilot to simulator</h2>
+    </div>
+    <div class="doc-section__body">
+      <p>The SRP data are not intended to train the final LBOC model directly. They provide the scales and dynamics used to calibrate a virtual-human simulator, which can then generate a wider range of plausible users and State–Observation–Action–Outcome trajectories.</p>
+      <figure>
+        <div class="framing-flow" role="img" aria-label="Pipeline from SRP pilot data to simulator calibration and LBOC evaluation">
+          <div class="framing-step">
+            <span class="framing-step__num">01</span>
+            <strong>SRP pilot</strong>
+            <span>Measure ranges, variability, delays, and quality</span>
+          </div>
+          <span class="framing-arrow" aria-hidden="true">&rarr;</span>
+          <div class="framing-step">
+            <span class="framing-step__num">02</span>
+            <strong>Virtual users</strong>
+            <span>Combine plausible response and sensor parameters</span>
+          </div>
+          <span class="framing-arrow" aria-hidden="true">&rarr;</span>
+          <div class="framing-step">
+            <span class="framing-step__num">03</span>
+            <strong>LBOC evaluation</strong>
+            <span>Stress-test fixed and adaptive XR policies</span>
+          </div>
+        </div>
+        <figcaption>The intended pipeline expands a small controlled pilot into a realistic simulation environment for testing adaptive decisions.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="doc-section tech-stack">
+    <div class="doc-section__head">
+      <h2><span class="num">07</span>Tech Stack</h2>
+    </div>
+    <div class="doc-section__body">
+      <div class="tech-stack-list">
+        <div class="tech-stack-item"><p class="label">Experiment engine</p><p>Unity and C# for the XR pairing task, stimulus presentation, response handling, and event timing</p></div>
+        <div class="tech-stack-item"><p class="label">Stimulus control</p><p>Deterministic stimulus-bank pairing, controlled structural relations, and transition-aware session schedules</p></div>
+        <div class="tech-stack-item"><p class="label">Multimodal acquisition</p><p>HMD-based behavior, gaze and head motion, with EEG and ECG aligned through event markers and timestamps</p></div>
+        <div class="tech-stack-item"><p class="label">Data protocol</p><p>Structured session configuration and trial-level logging for responses, transitions, synchronization, and sensor quality</p></div>
+      </div>
     </div>
   </section>
 
   <section style="padding:clamp(40px,5vw,72px) 0 clamp(56px,7vw,96px)">
     <h2 style="font-size:clamp(24px,2.4vw,30px);margin-bottom:22px">Links</h2>
     <div class="btn-row">
-      <a class="btn btn--solid" href="../assets/files/paper.pdf">Paper <span class="tag">PDF</span></a>
-      <a class="btn" href="#">Code <span class="ext">&#8599;</span></a>
-      <a class="btn" href="#">Demo <span class="ext">&#8599;</span></a>
-      <a class="btn" href="#">Video <span class="ext">&#8599;</span></a>
+      <a class="btn" href="https://github.com/Linkbreathe/3D-Structure-Rotation-Pairing-Task-SRP-Task" target="_blank" rel="noopener noreferrer">Source repository <span class="ext">&#8599;</span></a>
+      <a class="btn btn--solid" href="../index.html#contact">Contact for project details <span class="ext">&rarr;</span></a>
     </div>
   </section>
 
   <nav class="row row--between" style="border-top:1px solid var(--line);padding:clamp(28px,4vw,44px) 0">
-    <a href="../research.html" style="color:var(--muted)">&larr; All research</a>
-    <a href="../research.html" style="color:var(--muted)">All research &rarr;</a>
+    <a href="project-2.html" style="color:var(--muted)">&larr; Previous project</a>
+    <a href="project-5.html" style="color:var(--muted)">Next project &rarr;</a>
   </nav>
 </main>
 <footer class="site-foot">
@@ -147,6 +207,6 @@
     <span>Last updated September 2026</span>
   </div>
 </footer>
-<script src="../js/main.js"></script>
+<script src="../js/main.js?v=20260918"></script>
 </body>
 </html>

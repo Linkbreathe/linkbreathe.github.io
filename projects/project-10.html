@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Masked Pretraining for Medical Image Segmentation — Wei Xiong</title>
+<meta name="robots" content="noindex, nofollow, noarchive" />
+<meta name="description" content="A medical image segmentation project exploring masked pretraining, U-Net variants, and limited-label learning on thyroid ultrasound and panoramic dental X-rays." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&family=Schibsted+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+<header class="site-head">
+  <div class="wrap">
+    <a class="backlink" href="../research.html"><span>&larr;</span> Back to Research</a>
+    <a class="wordmark" style="margin-right:0" href="../index.html">Wei Xiong</a>
+  </div>
+</header>
+<main class="wrap">
+
+  <section style="padding:clamp(44px,7vw,88px) 0 clamp(28px,4vw,44px)">
+    <p class="eyebrow" style="margin-bottom:22px">AI · Coursework paper · Deep learning</p>
+    <h1 style="margin-bottom:24px;max-width:26ch">Masked Pretraining for Medical Image Segmentation</h1>
+    <p style="font-size:clamp(17px,1.5vw,21px);line-height:1.55;color:#4A4844;max-width:62ch">A U-Net-based framework that tests whether masked self-supervised pretraining can improve segmentation when pixel-wise medical annotations are limited.</p>
+  </section>
+
+  <img class="project-img project-img--figure project-img--overview" src="../assets/images/dl4cr-masked-pretraining.png" alt="Paper Figure 3 showing an ultrasound image with random masked patches and a U-Net reconstruction pipeline" />
+
+  <section class="facts">
+    <div>
+      <p class="label" style="margin-bottom:10px">Role</p>
+      <p>Model design · training scripts · evaluation</p>
+    </div>
+    <div>
+      <p class="label" style="margin-bottom:10px">Category</p>
+      <p>AI · computer vision · medical imaging</p>
+    </div>
+    <div>
+      <p class="label" style="margin-bottom:10px">Core methods</p>
+      <p>Masked pretraining · U-Net · Dice loss</p>
+    </div>
+    <div>
+      <p class="label" style="margin-bottom:10px">Supervisor</p>
+      <p>Henrik Pedersen</p>
+    </div>
+    <div>
+      <p class="label" style="margin-bottom:10px">Status</p>
+      <p>Course project · source available</p>
+    </div>
+  </section>
+
+  <section class="doc-section">
+    <div class="doc-section__head">
+      <h2><span class="num">01</span>Overview</h2>
+    </div>
+    <div class="doc-section__body">
+      <p>This project investigates whether U-Net can benefit from masked image pretraining when pixel-wise medical annotations are scarce. During pretraining, random regions of an image are hidden and the model reconstructs the missing pixels; the resulting weights are then reused for supervised segmentation.</p>
+      <p>The paper evaluates the method on TG3K thyroid ultrasound and STS-2D-Tooth panoramic dental X-rays. It compares a standard U-Net with spatial-channel attention and neighbour-aware context variants under limited-label conditions.</p>
+    </div>
+  </section>
+
+  <section class="doc-section">
+    <div class="doc-section__head">
+      <h2><span class="num">02</span>Training workflow</h2>
+    </div>
+    <div class="doc-section__body">
+      <p>The core comparison is between two self-supervised reconstruction strategies. Masked Image Modeling hides regions of an input and trains a U-Net backbone to recover them. Full-image pretraining instead reconstructs an original image from a perturbed version.</p>
+      <figure>
+        <div class="framing-flow" role="img" aria-label="Medical image segmentation workflow from preprocessing through self-supervised pretraining, fine-tuning, and evaluation">
+          <div class="framing-step"><span class="framing-step__num">01</span><strong>Preprocess</strong><span>Denoise and transform</span></div>
+          <span class="framing-arrow">&rarr;</span>
+          <div class="framing-step"><span class="framing-step__num">02</span><strong>Pretrain</strong><span>Reconstruct image structure</span></div>
+          <span class="framing-arrow">&rarr;</span>
+          <div class="framing-step"><span class="framing-step__num">03</span><strong>Fine-tune</strong><span>Predict labeled masks</span></div>
+          <span class="framing-arrow">&rarr;</span>
+          <div class="framing-step"><span class="framing-step__num">04</span><strong>Evaluate</strong><span>Dice and visual checks</span></div>
+        </div>
+        <figcaption>The repository makes the self-supervised-to-supervised transition explicit, so different initialization strategies can be compared in the same segmentation workflow.</figcaption>
+      </figure>
+      <figure>
+        <img class="project-img project-img--figure project-img--overview" src="../assets/images/dl4cr-masked-pretraining.png" alt="Masked pretraining architecture from the project paper" loading="lazy" />
+        <figcaption>Paper Figure 3: random patches are masked from an ultrasound image, and the U-Net reconstructs the missing pixels using the visible context.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="doc-section">
+    <div class="doc-section__head">
+      <h2><span class="num">03</span>Modeling choices</h2>
+    </div>
+    <div class="doc-section__body">
+      <p>The paper compares a standard 2D U-Net with scAG-UNet, which refines skip connections using spatial-channel attention, and NAC-UNet, which adds neighbour-aware context at the bottleneck. Fine-tuning uses a combined binary cross-entropy and Dice objective to balance pixel-wise correctness with overlap quality.</p>
+      <ul class="case-list">
+        <li><strong>Self-supervised signals.</strong> Masked reconstruction and full-image reconstruction provide two ways to learn from unlabeled images.</li>
+        <li><strong>Segmentation objective.</strong> BCE + Dice loss gives the model both local pixel supervision and a region-overlap signal.</li>
+        <li><strong>Inspection tools.</strong> Qualitative plots compare input, ground truth, prediction, and overlay; saliency maps make model focus easier to inspect.</li>
+      </ul>
+      <figure>
+        <img class="project-img project-img--figure project-img--overview" src="../assets/images/dl4cr-architectures.png" alt="Paper Figure 2 comparing baseline U-Net, scAG-UNet, spatial-channel attention, and NAC modules" loading="lazy" />
+        <figcaption>Paper Figure 2: the baseline and enhanced U-Net architectures used for the segmentation comparison.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="doc-section">
+    <div class="doc-section__head">
+      <h2><span class="num">04</span>Evaluation</h2>
+    </div>
+    <div class="doc-section__body">
+      <p>The paper uses Dice similarity as its primary metric. On TG3K, masked pretraining with a 0.5 mask ratio improves test Dice from 67.15% without pretraining to 69.64%; scAG-UNet reaches 73.12% test Dice under the same comparison setup.</p>
+      <div class="metric-grid" aria-label="Selected paper results">
+        <div class="metric"><span class="metric__value">69.64%</span><span class="metric__label">TG3K test Dice · masked 0.5</span></div>
+        <div class="metric"><span class="metric__value">73.12%</span><span class="metric__label">Best TG3K test Dice · scAG-UNet</span></div>
+        <div class="metric"><span class="metric__value">90.14%</span><span class="metric__label">STS-Tooth test Dice · 20% labels</span></div>
+      </div>
+      <figure>
+        <img class="project-img project-img--figure project-img--overview" src="../assets/images/dl4cr-masking-results.png" alt="Paper Figure 5 and Table 1 showing reconstruction examples and Dice results across masking ratios" loading="lazy" />
+        <figcaption>Paper Figure 5 and Table 1: masked reconstruction and downstream Dice scores across masking ratios and full-image reconstruction.</figcaption>
+      </figure>
+      <figure>
+        <img class="project-img project-img--figure project-img--overview" src="../assets/images/dl4cr-segmentation-results.png" alt="Paper Table 2 and Figure 6 comparing U-Net, scAG-UNet, and NAC-UNet segmentation outputs" loading="lazy" />
+        <figcaption>Paper Table 2 and Figure 6: scAG-UNet improves over the baseline, while the NAC variant is less stable in this limited-data setting.</figcaption>
+      </figure>
+      <p>The repository also includes preprocessing utilities, checkpoint management, reproducibility helpers, and command-line entry points for each stage of the experiment.</p>
+      <figure>
+        <img class="project-img project-img--figure project-img--overview" src="../assets/images/dl4cr-best-worst.png" alt="Paper Figure 8 showing best and worst thyroid segmentation predictions with overlays" loading="lazy" />
+        <figcaption>Paper Figure 8: best and worst predictions make the model's failure mode visible, especially when the target region is small or surrounded by noisy intensity changes.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="doc-section">
+    <div class="doc-section__head">
+      <h2><span class="num">05</span>Reflection</h2>
+    </div>
+    <div class="doc-section__body">
+      <p>This project connects a practical segmentation pipeline with a broader question in representation learning: when labels are expensive, how much useful structure can be learned from the images themselves?</p>
+      <p>The results are dataset-dependent. Masked pretraining helps more on the heterogeneous TG3K ultrasound images; on the smoother STS-Tooth images, the improvement is small and may not justify the extra computation. The paper also uses saliency maps to inspect whether failures coincide with attention to irrelevant regions.</p>
+      <figure>
+        <img class="project-img project-img--figure project-img--overview" src="../assets/images/dl4cr-saliency.png" alt="Paper Figure 9 showing saliency maps for positive and negative segmentation cases" loading="lazy" />
+        <figcaption>Paper Figure 9: saliency maps expose where the model concentrates its evidence in positive and negative cases.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section style="padding:clamp(40px,5vw,72px) 0 clamp(56px,7vw,96px)">
+    <h2 style="font-size:clamp(24px,2.4vw,30px);margin-bottom:22px">Links</h2>
+    <div class="btn-row">
+      <a class="btn btn--solid" href="https://github.com/Linkbreathe/DL4CR" target="_blank" rel="noopener noreferrer">Source repository <span class="ext">&#8599;</span></a>
+      <a class="btn" href="https://drive.google.com/file/d/1Yta6TtjsX_eYKbVyAFZJ4jCnSYunaA7o/view?usp=drive_link" target="_blank" rel="noopener noreferrer">Project paper <span class="ext">&#8599;</span></a>
+      <a class="btn" href="../index.html#contact">Contact for project details <span class="ext">&rarr;</span></a>
+    </div>
+  </section>
+
+  <nav class="row row--between" style="border-top:1px solid var(--line);padding:clamp(28px,4vw,44px) 0">
+    <a href="project-9.html" style="color:var(--muted)">&larr; Previous project</a>
+    <a href="../research.html" style="color:var(--muted)">All research &rarr;</a>
+  </nav>
+</main>
+<footer class="site-foot">
+  <div class="wrap">
+    <span>&copy; <span data-year>2026</span> Wei Xiong</span>
+    <span>Last updated September 2026</span>
+  </div>
+</footer>
+<script src="../js/main.js?v=20260918"></script>
+</body>
+</html>

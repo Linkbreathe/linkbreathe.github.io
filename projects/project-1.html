@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Project One Title Goes Here, One Line If Possible — Wei Xiong</title>
+<title>Toward Adaptive VR for Relaxation: Exploring Multimodal Sensing and User-State Prediction — Wei Xiong</title>
 <meta name="robots" content="noindex, nofollow, noarchive" />
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-C4GPY54EQ3"></script>
@@ -13,7 +13,7 @@
   gtag('js', new Date());
   gtag('config', 'G-C4GPY54EQ3');
 </script>
-<meta name="description" content="Project write-up: Project One Title Goes Here, One Line If Possible" />
+<meta name="description" content="A master’s thesis investigating controllable visual motion and calibration-free multimodal response estimation for adaptive VR relaxation." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&family=Schibsted+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -29,29 +29,33 @@
 <main class="wrap">
 
   <section style="padding:clamp(44px,7vw,88px) 0 clamp(28px,4vw,44px)">
-    <p class="eyebrow" style="margin-bottom:22px">System + Study &middot; 2026</p>
-    <h1 style="margin-bottom:24px;max-width:26ch">Project One Title Goes Here, One Line If Possible</h1>
-    <p style="font-size:clamp(17px,1.5vw,21px);line-height:1.55;color:#4A4844;max-width:60ch">A one-sentence subtitle that states the contribution: what you built, who you studied, and what changed as a result.</p>
+    <p class="eyebrow" style="margin-bottom:22px">XR · MSc thesis · 2026</p>
+    <h1 style="margin-bottom:24px;max-width:30ch">Toward Adaptive VR for Relaxation: Exploring Multimodal Sensing and User-State Prediction</h1>
+    <p style="font-size:clamp(17px,1.5vw,21px);line-height:1.55;color:#4A4844;max-width:60ch">A thesis investigating what adaptive VR would need to know before changing a relaxation experience for someone it has not seen before.</p>
   </section>
 
-  <div class="ph ph--hero"><span>hero image &mdash; 16:9, 2400px wide (system screenshot or study photo)</span></div>
+  <img class="project-img project-img--hero project-img--hero-wide" src="../assets/images/msc-combine.png" alt="Experimental setup, first-person VR view, and parameterized point-cloud stimulus" />
 
   <section class="facts">
     <div>
       <p class="label" style="margin-bottom:10px">Role</p>
-      <p>First author &mdash; system design, study, analysis</p>
+      <p>Thesis researcher · study design, implementation, analysis</p>
     </div>
     <div>
-      <p class="label" style="margin-bottom:10px">Collaborators</p>
-      <p>Name, Name &middot; Advisor: Name</p>
+      <p class="label" style="margin-bottom:10px">Setting</p>
+      <p>Aarhus University · Computer Science</p>
     </div>
     <div>
-      <p class="label" style="margin-bottom:10px">Timeline</p>
-      <p>Jan 2026 &mdash; Aug 2026</p>
+      <p class="label" style="margin-bottom:10px">Signals</p>
+      <p>EEG, ECG, eye tracking, head motion, first-person rendered XR video</p>
+    </div>
+    <div>
+      <p class="label" style="margin-bottom:10px">Supervisor</p>
+      <p><a class="fact-link" href="https://www.au.dk/en/show/person/pengyuan.zhou%40ece.au.dk" target="_blank" rel="noopener noreferrer">Peng Yuan Zhou <span class="ext">&#8599;</span></a> · <a class="fact-link" href="https://pure.au.dk/portal/en/persons/ken%40cs.au.dk" target="_blank" rel="noopener noreferrer">Ken Pfeuffer <span class="ext">&#8599;</span></a></p>
     </div>
     <div>
       <p class="label" style="margin-bottom:10px">Status</p>
-      <p>Under review, CHI 2027</p>
+      <p>MSc thesis · completed exploratory study</p>
     </div>
   </section>
 
@@ -60,79 +64,149 @@
       <h2><span class="num">01</span>Overview</h2>
     </div>
     <div class="doc-section__body">
-      <p>Two or three sentences a busy reader could stop at and still understand the work: the problem, what you made, and the headline result.</p>
-      <p>Keep this paragraph free of jargon. Everything below can go deeper.</p>
+      <p>Adaptive VR relaxation depends on two links: a visual experience must expose parameters that can be changed meaningfully, and the system must estimate how a new person responded to them. This thesis examines both links through a point-cloud rendering of Monet’s <em>Water Lilies</em>.</p>
+      <p>The first study maps how motion intensity and frequency relate to relaxation, calmness, pleasantness, and discomfort. The second asks whether synchronized physiological, behavioural, and rendered-scene recordings can estimate an unseen participant’s post-exposure response without personal calibration. The work evaluates prerequisites for adaptation; it does not claim to be a finished adaptive controller or a clinical intervention.</p>
     </div>
   </section>
   <section class="doc-section">
     <div class="doc-section__head">
-      <h2><span class="num">02</span>Background &amp; motivation</h2>
+      <h2><span class="num">02</span>Motivation</h2>
     </div>
     <div class="doc-section__body">
-      <p>What is broken today, and why existing approaches do not solve it. Cite prior work sparingly and in plain language.</p>
-      <p>End with the specific research question this project answers.</p>
+      <p>Through this project, I became increasingly interested in the gap between a system knowing what it has shown and knowing what that experience meant for a particular person. A motion parameter can be controlled precisely, but the same setting may feel calming, boring, demanding, or uncomfortable to different users.</p>
+      <p>That distinction shaped the thesis. Rather than treating any measurable signal as a direct readout of relaxation, I used the known stimulus condition as a reference and tested whether multimodal recordings added reliable information about an individual response.</p>
       <figure>
-        <div class="ph ph--fig"><span>diagram &mdash; problem framing, 16:9</span></div>
-        <figcaption>Figure caption &mdash; describe what the reader should notice, not what the image contains.</figcaption>
+        <div class="framing-flow" role="img" aria-label="Research logic: what was shown, what was measured, and what could be inferred">
+          <div class="framing-step">
+            <span class="framing-step__num">01</span>
+            <strong>What was shown</strong>
+            <span>Motion intensity &amp; frequency</span>
+          </div>
+          <span class="framing-arrow" aria-hidden="true">&rarr;</span>
+          <div class="framing-step">
+            <span class="framing-step__num">02</span>
+            <strong>What was measured</strong>
+            <span>EEG · ECG · behaviour · XR video</span>
+          </div>
+          <span class="framing-arrow" aria-hidden="true">&rarr;</span>
+          <div class="framing-step">
+            <span class="framing-step__num">03</span>
+            <strong>What could be inferred</strong>
+            <span>Relaxation, calmness &amp; discomfort</span>
+          </div>
+        </div>
+        <figcaption>The research moves from a controlled experience, through synchronized measurements, to a cautious test of what can be inferred about an individual.</figcaption>
       </figure>
     </div>
   </section>
   <section class="doc-section">
     <div class="doc-section__head">
-      <h2><span class="num">03</span>Method &amp; system</h2>
+      <h2><span class="num">03</span>Approach</h2>
     </div>
     <div class="doc-section__body">
-      <p>Describe the artifact: architecture, interaction model, key design decisions and the trade-offs behind them.</p>
-      <p>If there is a novel technique, give it one short paragraph and one figure rather than a wall of text.</p>
+      <p>I implemented the Unity stimulus as an animated point cloud whose motion intensity and frequency could be controlled independently. During each exposure, the pipeline synchronized EEG, bipolar wrist ECG, eye tracking, head motion, and the headset’s first-person rendered video on a shared Lab Streaming Layer timeline.</p>
+      <p>Fifteen participants rated nine intensity–frequency conditions. For the response-estimation study, I evaluated the nine participants with all five modalities in a strict leave-one-participant-out setting. The comparison covered handcrafted summaries, a temporal model, and frozen pretrained representations, with the downstream models held to the same fold-local protocol.</p>
       <figure>
-        <div class="ph ph--fig"><span>system diagram or UI walkthrough &mdash; 16:9</span></div>
-        <figcaption>Figure caption &mdash; describe what the reader should notice, not what the image contains.</figcaption>
+        <img class="project-img project-img--figure" src="../assets/images/msc-preprocessing-pipeline.png" alt="Pipeline showing multimodal recordings, time alignment, preprocessing, quality control, and model-ready windows" />
+        <figcaption>From synchronized recordings to model-ready windows, each modality passed through its own quality checks before participant-held-out evaluation.</figcaption>
       </figure>
     </div>
   </section>
   <section class="doc-section">
     <div class="doc-section__head">
-      <h2><span class="num">04</span>Study &amp; evaluation</h2>
+      <h2><span class="num">04</span>Hardware setup</h2>
     </div>
     <div class="doc-section__body">
-      <p>Participants, task, conditions, measures. One paragraph is usually enough at portfolio depth.</p>
-      <p>Say why this design was the right way to test the claim.</p>
+      <p>The physical setup combined a head-mounted display with a portable physiological acquisition unit. The Hyperscanner handled the electrophysiological recording path, while a Raspberry Pi Zero 2 supported the compact acquisition and synchronization setup shown here. The headset supplied the visual scene, eye tracking, head pose, and first-person rendered video; Unity events marked the condition timeline for later alignment.</p>
+      <p>The <a href="https://ece.au.dk/en/research/research-areas-department-of-electrical-and-computer-engineering-technical-sciences-aarhus-university/biomedical-engineering/research-groups/biomedical-sensing-and-instrumentation/projects/translate-to-english-the-hyperscanner" target="_blank" rel="noopener">Hyperscanner project at Aarhus University <span class="ext">&#8599;</span></a> is a modular platform for multimodal biomedical acquisition. Its low-noise analog front-end, extensible sensing boards, and embedded computing support make it a useful foundation for synchronized EEG, ECG, and other physiological measurements.</p>
+      <figure>
+        <img class="project-img project-img--figure project-img--overview" src="../assets/images/msc-overview.png" alt="Annotated overview of the VR headset, ear-EEG, ECG, and portable Hyperscanner and Raspberry Pi acquisition unit" />
+        <figcaption>The setup brought together the headset, ear-EEG, ECG, and portable acquisition hardware in one synchronized measurement chain.</figcaption>
+      </figure>
+      <figure>
+        <img class="project-img project-img--hardware" src="../assets/images/msc-hdw-1.png" alt="Hyperscanner connected to a Raspberry Pi Zero 2 with labeled sensor and signal connections" />
+        <figcaption>Portable acquisition hardware used to collect and align physiological signals for the XR study.</figcaption>
+      </figure>
     </div>
   </section>
   <section class="doc-section">
     <div class="doc-section__head">
-      <h2><span class="num">05</span>Results</h2>
+      <h2><span class="num">05</span>Contribution</h2>
     </div>
     <div class="doc-section__body">
-      <p>Lead with the finding, then the evidence. Quantitative effects with direction and magnitude; qualitative themes with one short quote each.</p>
-      <p>Close with limitations and what you would do next &mdash; reviewers read this as maturity.</p>
+      <p>My contribution was to connect the stimulus, sensing, and evaluation layers into one traceable study:</p>
+      <ul class="case-list">
+        <li><strong>Built the stimulus.</strong> I implemented the Unity point-cloud rendering of <em>Water Lilies</em>, with motion intensity and frequency controlled as separate parameters.</li>
+        <li><strong>Established the study pipeline.</strong> I set up synchronized collection of EEG, ECG, eye tracking, head motion, and first-person rendered XR video, including event markers and modality-specific quality checks.</li>
+        <li><strong>Ran the analysis.</strong> I carried out the participant-aware statistical models and the multimodal comparisons, using held-out participants, fold-local processing, and correction procedures that keep repeated measurements from overstating the evidence.</li>
+        <li><strong>Defined the interpretation boundary.</strong> By comparing each model with a condition-only reference, I separated recovery of the rendered stimulus from recovery of an individual’s response to it.</li>
+      </ul>
+    </div>
+  </section>
+  <section class="doc-section">
+    <div class="doc-section__head">
+      <h2><span class="num">06</span>Findings</h2>
+    </div>
+    <div class="doc-section__body">
+      <p>The thesis gives a partial answer: the stimulus could be characterized within this case, but calibration-free estimation of an individual response remained unresolved.</p>
+      <ul class="case-list">
+        <li><strong>Motion affected different parts of the experience.</strong> Within the tested <em>Water Lilies</em> grid, higher intensity was associated with lower calmness and greater discomfort. Higher frequency was associated with lower relaxation and calmness. No reliable intensity–frequency interaction or pleasantness effect was supported.</li>
+        <li><strong>The known condition was a strong baseline.</strong> For an unseen participant, none of the tested representation or fusion choices reliably improved on the response predicted from the condition alone. This means the models did not yet provide dependable cold-start personalization.</li>
+        <li><strong>Stimulus information was easier to recover than personal response.</strong> Frozen video representations identified rendered intensity and frequency at roughly 60% balanced accuracy, but this readable context did not translate into a reliable estimate of how the individual responded.</li>
+        <li><strong>ECG is a candidate, not a conclusion.</strong> It showed the clearest exploratory direction among the single modalities, but its small gains were uncertain. The study therefore points to a context-to-person gap rather than a finished adaptive controller.</li>
+      </ul>
       <figure>
-        <div class="ph ph--fig"><span>results chart &mdash; 16:9</span></div>
-        <figcaption>Figure caption &mdash; describe what the reader should notice, not what the image contains.</figcaption>
+        <img class="project-img project-img--figure" src="../assets/images/msc-rq1-subjective-profile.png" alt="Four heatmaps showing relaxation, calmness, pleasantness, and discomfort ratings across the nine stimulus conditions" />
+        <figcaption>Subjective response profile across the nine Water Lilies conditions, with fifteen participant ratings per cell.</figcaption>
       </figure>
+      <figure>
+        <img class="project-img project-img--figure" src="../assets/images/msc-rq2-content-audit.png" alt="Representation content audit comparing stimulus decoding with response error relative to the condition anchor" />
+        <figcaption>The representation audit makes the central boundary visible: stimulus levels were recoverable, while individual-response probes did not reliably beat the condition anchor.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="doc-section">
+    <div class="doc-section__head">
+      <h2><span class="num">07</span>Reflection</h2>
+    </div>
+    <div class="doc-section__body">
+      <p>The study did not produce a ready-made adaptive controller. It produced a clearer account of what is still missing: denser and time-aligned labels, repeated sessions, personal-calibration comparisons, and validation on new stimuli and conditions.</p>
+      <p>That outcome changed how I think about adaptive XR. The important question is not whether a model can find a pattern in a multimodal recording, but whether the pattern adds dependable evidence about the person at the moment a system is deciding what to do.</p>
+    </div>
+  </section>
+
+  <section class="doc-section tech-stack">
+    <div class="doc-section__head">
+      <h2><span class="num">08</span>Tech Stack</h2>
+    </div>
+    <div class="doc-section__body">
+      <div class="tech-stack-list">
+        <div class="tech-stack-item"><p class="label">XR development</p><p>Unity, C#, Visual Effect Graph, and a parameterized point-cloud rendering of <em>Water Lilies</em></p></div>
+        <div class="tech-stack-item"><p class="label">Sensing &amp; synchronization</p><p>EEG, bipolar wrist ECG, eye tracking, HMD motion, first-person XR video, and Lab Streaming Layer</p></div>
+        <div class="tech-stack-item"><p class="label">Data &amp; statistics</p><p>Python, signal processing, quality control, random-intercept models, and multiple-comparison correction</p></div>
+        <div class="tech-stack-item"><p class="label">Modelling &amp; evaluation</p><p>Handcrafted and learned representations, multimodal fusion, PCA, Ridge regression, linear probes, and leave-one-participant-out validation</p></div>
+      </div>
     </div>
   </section>
 
   <section class="doc-section" style="display:block">
     <div class="row row--between" style="margin-bottom:clamp(20px,3vw,32px)">
-      <h2 style="font-size:clamp(24px,2.4vw,30px)">Gallery</h2>
-      <p class="label" style="color:var(--faint)">06</p>
+      <h2 style="font-size:clamp(24px,2.4vw,30px)">Visual materials</h2>
+      <p class="label" style="color:var(--faint)">09</p>
     </div>
     <div class="grid grid--gallery">
-      <div class="ph ph--tile"><span>gallery 01 &mdash; 4:3</span></div>
-      <div class="ph ph--tile"><span>gallery 02 &mdash; 4:3</span></div>
-      <div class="ph ph--tile"><span>gallery 03 &mdash; 4:3</span></div>
-      <div class="ph ph--tile"><span>gallery 04 &mdash; 4:3</span></div>
+      <img class="project-img project-img--tile" src="../assets/images/msc-p2-3.png" alt="Participant wearing a VR headset while acquisition hardware and sensors are visible in the setup" />
+      <img class="project-img project-img--tile" src="../assets/images/msc-p1-2.png" alt="Front view of a participant wearing a VR headset and physiological sensors" />
+      <img class="project-img project-img--tile" src="../assets/images/msc-p2-1.png" alt="Participant seated in the VR study with the recording equipment beside them" />
     </div>
   </section>
 
   <section style="padding:clamp(40px,5vw,72px) 0 clamp(56px,7vw,96px)">
     <h2 style="font-size:clamp(24px,2.4vw,30px);margin-bottom:22px">Links</h2>
     <div class="btn-row">
-      <a class="btn btn--solid" href="../assets/files/paper.pdf">Paper <span class="tag">PDF</span></a>
-      <a class="btn" href="#">Code <span class="ext">&#8599;</span></a>
-      <a class="btn" href="#">Demo <span class="ext">&#8599;</span></a>
-      <a class="btn" href="#">Video <span class="ext">&#8599;</span></a>
+      <a class="btn" href="https://github.com/Linkbreathe/multimodal-affective-computing">Source repository <span class="ext">&#8599;</span></a>
+      <a class="btn btn--solid" href="../index.html#contact">Contact for materials <span class="ext">&rarr;</span></a>
     </div>
   </section>
 
@@ -147,6 +221,6 @@
     <span>Last updated September 2026</span>
   </div>
 </footer>
-<script src="../js/main.js"></script>
+<script src="../js/main.js?v=20260918"></script>
 </body>
 </html>

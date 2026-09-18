@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Linki · Adaptive Agentic RAG — Wei Xiong</title>
+<meta name="robots" content="noindex, nofollow, noarchive" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-C4GPY54EQ3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-C4GPY54EQ3');
+</script>
+<meta name="description" content="Linki is an evidence-grounded adaptive Agentic RAG assistant with bounded routing, governed memory, and benchmark-backed evaluation." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&family=Schibsted+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../css/style.css" />
+<style>
+  .linki-hero{position:relative;overflow:hidden;border-radius:18px;background:#171817}
+  .linki-hero .project-img--hero{display:block;border:0;border-radius:0;object-position:center 52%;opacity:.9}
+  .linki-hero__caption{position:absolute;left:22px;bottom:20px;padding:8px 12px;border:1px solid rgba(250,249,247,.28);border-radius:999px;background:rgba(20,20,18,.58);color:rgba(250,249,247,.86);font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase}
+  .linki-route-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:30px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .linki-route{min-height:164px;padding:17px 16px 19px;border-left:1px solid var(--line-2)}
+  .linki-route:first-child{border-left:0}
+  .linki-route--deep{background:linear-gradient(180deg,rgba(60,90,84,.08),transparent 76%)}
+  .linki-route__label{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:15px;font-family:var(--mono);font-size:11px;letter-spacing:.11em;color:var(--accent);text-transform:uppercase}
+  .linki-route__title{font-family:var(--serif);font-size:22px;line-height:1.05;margin-bottom:9px}
+  .linki-route__body{font-size:14px;line-height:1.45;color:var(--muted)}
+  .linki-route__budget{display:block;margin-top:16px;font-family:var(--mono);font-size:10px;letter-spacing:.06em;color:var(--muted-2)}
+  .linki-callout{margin:28px 0 0;padding:18px 20px;border-left:3px solid var(--accent);background:var(--fill)}
+  .linki-callout p{font-size:15.5px!important;line-height:1.6!important;color:var(--ink-2)!important}
+  .linki-callout .label{margin-bottom:7px}
+  .linki-figure{margin-top:30px}
+  .linki-figure img{background:#fff}
+  .linki-figure--dark img{background:#171817}
+  .linki-figure figcaption{max-width:74ch}
+  .doc-section--wide .doc-section__body{max-width:none;flex-basis:620px}
+  .linki-wide-image{width:100%;height:auto;object-fit:contain}
+  .linki-flow-note{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin-top:28px;border-top:1px solid var(--line-2);border-bottom:1px solid var(--line-2)}
+  .linki-flow-note > div{padding:15px 16px 17px;border-left:1px solid var(--line-2)}
+  .linki-flow-note > div:first-child{border-left:0}
+  .linki-flow-note .label{margin-bottom:7px}
+  .linki-flow-note p:last-child{font-size:14px!important;line-height:1.45!important;color:var(--muted)!important}
+  .metric-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:28px 0 0}
+  .metric-card{padding:15px 15px 17px;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+  .metric-card strong{display:block;margin:7px 0 4px;font-family:var(--serif);font-weight:400;font-size:30px;line-height:1;color:var(--accent)}
+  .metric-card span:last-child{display:block;font-size:12.5px;line-height:1.35;color:var(--muted)}
+  .benchmark-wrap{overflow-x:auto;margin-top:28px;border-top:1px solid var(--line)}
+  .benchmark-table{width:100%;min-width:710px;border-collapse:collapse;font-size:13px}
+  .benchmark-table th,.benchmark-table td{padding:12px 10px;border-bottom:1px solid var(--line-2);text-align:right;white-space:nowrap}
+  .benchmark-table th:first-child,.benchmark-table td:first-child{text-align:left;padding-left:0}
+  .benchmark-table th{font-family:var(--mono);font-size:10px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted-2);font-weight:400}
+  .benchmark-table td{color:var(--ink-2)}
+  .benchmark-table tr.highlight td{color:var(--accent);font-weight:600}
+  .benchmark-table tr.baseline td:first-child{color:var(--muted-2)}
+  .gate-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 26px;margin-top:26px;border-top:1px solid var(--line-2)}
+  .gate-item{display:flex;gap:12px;padding:13px 0;border-bottom:1px solid var(--line-2);font-size:14px;line-height:1.45;color:var(--muted)}
+  .gate-item strong{flex:0 0 auto;font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);padding-top:3px}
+  .gate-item--fail strong{color:#8B5A4A}
+  .linki-limits{margin:23px 0 0;padding-left:1.2em;display:grid;gap:8px}
+  .linki-limits li{padding-left:4px;font-size:14.5px;line-height:1.55;color:var(--muted)}
+  .linki-code{margin:24px 0 0;padding:16px 18px;overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:#1b1b1a;color:#ebe8df;font-family:var(--mono);font-size:12px;line-height:1.75}
+  .linki-code .comment{color:#9aa39d}
+  .linki-code .command{color:#d7c493}
+  .linki-gallery figure{margin:0}
+  .linki-gallery figure img{background:var(--surface)}
+  .linki-gallery figure figcaption{margin-top:9px;font-size:12.5px}
+  @media (max-width:800px){
+    .linki-route-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .linki-route:nth-child(3){border-left:0;border-top:1px solid var(--line-2)}
+    .linki-route:nth-child(4){border-top:1px solid var(--line-2)}
+    .metric-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .linki-flow-note{grid-template-columns:1fr}
+    .linki-flow-note > div,.linki-flow-note > div:first-child{border-left:0;border-top:1px solid var(--line-2)}
+    .linki-flow-note > div:first-child{border-top:0}
+    .gate-list{grid-template-columns:1fr}
+  }
+  @media (max-width:520px){
+    .linki-route-grid,.metric-grid{grid-template-columns:1fr}
+    .linki-route,.linki-route:nth-child(3),.linki-route:nth-child(4){border-left:0;border-top:1px solid var(--line-2)}
+    .linki-route:first-child{border-top:0}
+  }
+</style>
+</head>
+<body>
+<header class="site-head">
+  <div class="wrap">
+    <a class="backlink" href="../research.html"><span>&larr;</span> Back to Research</a>
+    <a class="wordmark" style="margin-right:0" href="../index.html">Wei Xiong</a>
+  </div>
+</header>
+<main class="wrap">
+
+  <section style="padding:clamp(44px,7vw,88px) 0 clamp(28px,4vw,44px)">
+    <p class="eyebrow" style="margin-bottom:22px">AI · Independent project · Open source · 2026</p>
+    <h1 style="margin-bottom:24px;max-width:26ch">Linki · Adaptive Agentic RAG</h1>
+    <p class="lede" style="font-size:clamp(17px,1.5vw,21px);max-width:62ch">An evidence-grounded assistant that spends compute only when a question needs it — and makes the quality, cost, and uncertainty of that decision visible.</p>
+  </section>
+
+  <div class="linki-hero" role="img" aria-label="Illustration of Linki as a knowledge assistant reading a book">
+    <img class="project-img project-img--hero" src="../assets/images/linki-readme.png" alt="Illustration of a knowledge assistant reading in a study" />
+    <span class="linki-hero__caption">Linki · adaptive knowledge assistant</span>
+  </div>
+
+  <section class="facts">
+    <div>
+      <p class="label" style="margin-bottom:10px">Role</p>
+      <p>System design · implementation · evaluation</p>
+    </div>
+    <div>
+      <p class="label" style="margin-bottom:10px">Focus</p>
+      <p>Adaptive routing · evidence integrity · governance</p>
+    </div>
+    <div>
+      <p class="label" style="margin-bottom:10px">Benchmark</p>
+      <p>MultiHop-RAG · 609 articles · 2,556 questions</p>
+    </div>
+    <div>
+      <p class="label" style="margin-bottom:10px">Supervisor</p>
+      <p><a class="fact-link" href="https://github.com/Linkbreathe/LinkiRAG-AgenticRAG" target="_blank" rel="noopener noreferrer">Self-directed <span class="ext">&#8599;</span></a></p>
+    </div>
+    <div>
+      <p class="label" style="margin-bottom:10px">Status</p>
+      <p>Independent open-source prototype · MIT</p>
+    </div>
+  </section>
+
+  <section class="doc-section">
+    <div class="doc-section__head">
+      <h2><span class="num">01</span>Overview</h2>
+    </div>
+    <div class="doc-section__body">
+      <p>Linki is a Python 3.12 knowledge assistant built around LangGraph, local FastEmbed models, and Qdrant hybrid search. It answers from verbatim, citation-checked evidence instead of treating a language model’s memory as a source of truth.</p>
+      <p>The central idea is simple: a greeting should stay cheap, a factual lookup should not need a full agent loop, and a multi-hop or high-risk question should be allowed to buy more planning and verification. A local policy makes that choice before the first model call, with explicit limits and traceable reasons.</p>
+      <div class="linki-callout">
+        <p class="label">The design claim</p>
+        <p>Adaptive execution is only useful when it is bounded, observable, and held to the same evidence standard as the expensive path.</p>
+      </div>
+    </div>
+  </section>
+  <section class="doc-section">
+    <div class="doc-section__head">
+      <h2><span class="num">02</span>Why adaptive RAG</h2>
+    </div>
+    <div class="doc-section__body">
+      <p>A fixed agentic graph can produce strong answers, but it makes every question pay for planning, grading, verification, and reflow. Linki treats compute as a routing decision: use a bounded amount of work for easy questions, then escalate only when the question or the evidence signals that more work is justified.</p>
+      <div class="linki-route-grid" aria-label="Linki execution paths">
+        <div class="linki-route">
+          <div class="linki-route__label"><span>P0</span><span>local</span></div>
+          <h3 class="linki-route__title">Chat</h3>
+          <p class="linki-route__body">Greetings and simple acknowledgements can answer without retrieval.</p>
+          <span class="linki-route__budget">0–1 call · 0 evidence tokens</span>
+        </div>
+        <div class="linki-route">
+          <div class="linki-route__label"><span>P1</span><span>fast</span></div>
+          <h3 class="linki-route__title">Retrieve + answer</h3>
+          <p class="linki-route__body">One clear factual intent goes directly to a selected knowledge base.</p>
+          <span class="linki-route__budget">1 call · 1,200 evidence tokens</span>
+        </div>
+        <div class="linki-route">
+          <div class="linki-route__label"><span>P2</span><span>balanced</span></div>
+          <h3 class="linki-route__title">Plan once</h3>
+          <p class="linki-route__body">Comparison or multi-facet questions receive a small execution plan.</p>
+          <span class="linki-route__budget">≤3 calls · 2,400 evidence tokens</span>
+        </div>
+        <div class="linki-route linki-route--deep">
+          <div class="linki-route__label"><span>P3</span><span>deep</span></div>
+          <h3 class="linki-route__title">Verify</h3>
+          <p class="linki-route__body">High-risk, unresolved, or explicitly deep requests can grade and verify.</p>
+          <span class="linki-route__budget">≤7 calls · 4,000 evidence tokens</span>
+        </div>
+      </div>
+      <p style="margin-top:18px">Every path carries a maximum call count, input-token budget, evidence budget, round limit, and deadline. If retrieval looks unsafe, a deterministic risk gate can upgrade a short path to P3; it cannot silently continue under the old budget.</p>
+    </div>
+  </section>
+  <section class="doc-section doc-section--wide">
+    <div class="doc-section__head">
+      <h2><span class="num">03</span>System design</h2>
+    </div>
+    <div class="doc-section__body">
+      <p>Linki separates the answer workflow from three governed side planes: long-term memory, organizational knowledge, and release-gated self-evolution. This keeps personalization and improvement useful without allowing an inferred preference, model output, or prompt change to become trusted state by accident.</p>
+      <figure class="linki-figure linki-figure--dark">
+        <img class="project-img project-img--figure linki-wide-image" src="../assets/images/linki-architecture.png" alt="Linki architecture showing the agentic RAG workflow, memory, retrieval, knowledge sources, lifecycle, tools, and governance" loading="lazy" decoding="async" />
+        <figcaption>The repository architecture makes the boundaries explicit: workflow and retrieval sit alongside governed memory, knowledge sources, lifecycle controls, and observability.</figcaption>
+      </figure>
+      <div class="linki-flow-note">
+        <div>
+          <p class="label">Retrieve</p>
+          <p>30 dense + sparse child candidates, then local cross-encoder reranking.</p>
+        </div>
+        <div>
+          <p class="label">Evidence</p>
+          <p>Verbatim supporting spans retain source version, hash, and character offsets.</p>
+        </div>
+        <div>
+          <p class="label">Decide</p>
+          <p>Answer risk chooses accept, verify, warn, or a bounded reflow.</p>
+        </div>
+      </div>
+      <figure class="linki-figure">
+        <img class="project-img project-img--figure linki-wide-image" src="../assets/images/linki-workflow.png" alt="Agentic RAG workflow graph with history summarization, query rewriting, orchestration, tools, context compression, answer aggregation, and final response" loading="lazy" decoding="async" />
+        <figcaption>The original Agentic RAG workflow foundation is extended by the current implementation with pre-call P0–P3 policy selection, evidence packs, and deterministic risk gates.</figcaption>
+      </figure>
+    </div>
+  </section>
+  <section class="doc-section">
+    <div class="doc-section__head">
+      <h2><span class="num">04</span>Evidence &amp; governance</h2>
+    </div>
+    <div class="doc-section__body">
+      <p>Retrieval is hierarchical: parent chunks preserve enough context for the model, while smaller child chunks provide a high-recall search surface. Dense embeddings and BM25 candidates are merged, reranked locally, deduplicated by parent, and packed under a path-specific token budget.</p>
+      <p>The answer receives the original supporting spans, never a quietly rewritten version. Each span keeps a content hash and validated offsets into its source. Evidence Packs also enforce source diversity and sub-query coverage; the experimental two-hop PageRank retriever remains an explicit deep-path option because its recall gain comes with a measurable latency cost.</p>
+      <p>Memory and knowledge follow a stricter lifecycle. Explicit memory can become active, inferred memory begins as a candidate, edits create new versions, and forgetting tombstones content. Organizational claims need a source artifact, a valid source span, schema checks, and explicit approval before they can appear in a published Wiki or graph projection.</p>
+      <div class="linki-callout">
+        <p class="label">Release-gated self-evolution</p>
+        <p>Feedback and failures become a knowledge-gap backlog. Prompt, policy, and index candidates move through immutable evaluation, deterministic canary buckets, constraint gates, promotion, and rollback.</p>
+      </div>
+    </div>
+  </section>
+  <section class="doc-section doc-section--wide">
+    <div class="doc-section__head">
+      <h2><span class="num">05</span>Evaluation</h2>
+    </div>
+    <div class="doc-section__body">
+      <p>The benchmark uses the official MultiHop-RAG corpus: 609 articles, 2,556 questions (2,255 answerable and 301 null), 10,398 parent chunks, and 47,593 child vectors. The formal end-to-end comparison uses 120 stratified questions and 480 system calls with the same main model, judge, corpus, and rotated execution order.</p>
+      <div class="metric-grid" aria-label="Headline benchmark findings">
+        <div class="metric-card"><span class="label">Mean tokens</span><strong>−73.5%</strong><span>adaptive auto vs. legacy full graph</span></div>
+        <div class="metric-card"><span class="label">p50 latency</span><strong>−81.5%</strong><span>adaptive auto vs. legacy full graph</span></div>
+        <div class="metric-card"><span class="label">Answer quality</span><strong>+0.417</strong><span>paired mean delta on a 1–5 scale</span></div>
+        <div class="metric-card"><span class="label">Refusal correct</span><strong>0.892</strong><span>adaptive auto on the formal set</span></div>
+      </div>
+      <div class="benchmark-wrap">
+        <table class="benchmark-table">
+          <thead>
+            <tr><th>System</th><th>Calls</th><th>Mean tokens</th><th>p50 latency</th><th>p95 latency</th><th>Faithfulness</th><th>Quality</th><th>All-support</th></tr>
+          </thead>
+          <tbody>
+            <tr class="baseline"><td>Fair single pass</td><td>1.00</td><td>1,654</td><td>2.403 s</td><td>3.079 s</td><td>4.567</td><td>3.233</td><td>0.244</td></tr>
+            <tr><td>Legacy full graph</td><td>6.92</td><td>9,222</td><td>22.426 s</td><td>62.776 s</td><td>4.417</td><td>3.592</td><td>0.433</td></tr>
+            <tr class="highlight"><td>Adaptive auto</td><td>1.26</td><td>2,440</td><td>4.138 s</td><td>6.950 s</td><td>4.342</td><td>4.008</td><td>0.322</td></tr>
+            <tr><td>Adaptive deep</td><td>5.23</td><td>10,262</td><td>21.106 s</td><td>45.913 s</td><td>4.267</td><td>3.475</td><td>0.467</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:18px">Adaptive auto made the system much cheaper and improved judged answer quality and refusal correctness, but strict evidence coverage fell by 0.111. That trade-off is why the release gate remains meaningful.</p>
+      <div class="gate-list" aria-label="Adaptive release gate results">
+        <div class="gate-item"><strong>Pass</strong><span>Tokens, p50 latency, P1 call count, and refusal-correctness confidence bound all cleared their pre-set gates.</span></div>
+        <div class="gate-item gate-item--fail"><strong>Fail</strong><span>All-support confidence bound fell below the allowed floor, and P1 faithfulness was below the fair single-pass reference.</span></div>
+        <div class="gate-item"><strong>Decision</strong><span><code>auto</code> stays on the legacy graph while recording the adaptive choice as <code>shadow_policy</code>.</span></div>
+        <div class="gate-item"><strong>Opt in</strong><span>Callers can select <code>fast</code>, <code>balanced</code>, or <code>deep</code> per request after corpus-specific calibration.</span></div>
+      </div>
+      <figure class="linki-figure">
+        <img class="project-img project-img--figure linki-wide-image" src="../assets/images/linki-demo.gif" alt="Animated preview of the Linki web console uploading a document to the knowledge base" loading="lazy" decoding="async" />
+        <figcaption>The repository also includes a web console for document ingestion, chat, execution modes, trace inspection, evidence, memory, Wiki pages, and feedback.</figcaption>
+      </figure>
+    </div>
+  </section>
+  <section class="doc-section">
+    <div class="doc-section__head">
+      <h2><span class="num">06</span>Reflection</h2>
+    </div>
+    <div class="doc-section__body">
+      <p>The most useful result is not that one route is always better. It is that the system can make its trade-offs explicit: retrieval can be deterministic while generated claims still drift, graph retrieval can improve recall while making latency worse, and an adaptive path can pass efficiency gates while failing evidence-quality gates.</p>
+      <p>That is the engineering lesson I wanted the project to hold onto. Adaptive systems should expose their budgets, reasons, evidence, and release state so that “more intelligent” never becomes a synonym for “less inspectable.”</p>
+      <ul class="linki-limits">
+        <li>MultiHop-RAG covers comparison, inference, temporal, and null questions; it does not yet cover the planned single, multi-turn, or cross-KB strata.</li>
+        <li>Embedded Qdrant is suitable for the reproducible local run, not a server-capacity claim for the 47,593-vector index.</li>
+        <li>Answer-claim Jaccard is lexical sentence overlap, not a semantic entailment score; identical retrieval still produced only 0.6928 claim Jaccard.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="doc-section tech-stack">
+    <div class="doc-section__head">
+      <h2><span class="num">07</span>Tech stack</h2>
+    </div>
+    <div class="doc-section__body">
+      <div class="tech-stack-list">
+        <div class="tech-stack-item"><p class="label">Runtime</p><p>Python 3.12, Pydantic, Typer, Rich, python-dotenv, PyYAML, FastAPI, and Uvicorn</p></div>
+        <div class="tech-stack-item"><p class="label">Agent graph</p><p>LangGraph, LangChain Core, provider adapters, bounded P0–P3 policy, and deterministic risk gates</p></div>
+        <div class="tech-stack-item"><p class="label">Retrieval</p><p>Qdrant, FastEmbed, BAAI/bge-small-en-v1.5, Qdrant/bm25, local cross-encoder reranking, parent/child chunking, and Evidence Packs</p></div>
+        <div class="tech-stack-item"><p class="label">Governance</p><p>SQLite, optional Redis, tenant/user/ACL-scoped memory, bitemporal claims, Wiki/graph projections, canary release gates, and rollback</p></div>
+        <div class="tech-stack-item"><p class="label">Evaluation</p><p>pytest, MultiHop-RAG retrieval and end-to-end protocols, stability runs, telemetry, and provider token usage</p></div>
+        <div class="tech-stack-item"><p class="label">Interface</p><p>React, TypeScript, Vite, Radix UI, and a FastAPI web console with trace and evidence inspection</p></div>
+      </div>
+      <pre class="linki-code"><span class="comment"># Reproduce the core checks</span>
+<span class="command">uv run pytest -q</span>
+<span class="command">linki bench-retrieval --benchmark multihop-rag --variant all</span>
+<span class="command">linki bench-fair --benchmark multihop-rag --fold-size 40</span>
+<span class="command">linki bench-stability --benchmark multihop-rag --limit 120 --repeats 3</span></pre>
+    </div>
+  </section>
+
+  <section class="doc-section" style="display:block">
+    <div class="row row--between" style="margin-bottom:clamp(20px,3vw,32px)">
+      <h2 style="font-size:clamp(24px,2.4vw,30px)">Visual materials</h2>
+      <p class="label" style="color:var(--faint)">08</p>
+    </div>
+    <div class="grid grid--gallery linki-gallery">
+      <figure><img class="project-media project-media--tile" src="../assets/images/linki-readme.png" alt="Illustrated Linki knowledge assistant" loading="lazy" decoding="async" /><figcaption>Project identity and knowledge-assistant metaphor</figcaption></figure>
+      <figure><img class="project-media project-media--tile" src="../assets/images/linki-architecture.png" alt="Full Linki system architecture" loading="lazy" decoding="async" /><figcaption>Architecture and governance planes</figcaption></figure>
+      <figure><img class="project-media project-media--tile" src="../assets/images/linki-workflow.png" alt="Agentic RAG workflow graph" loading="lazy" decoding="async" /><figcaption>Agentic workflow foundation</figcaption></figure>
+      <figure><img class="project-media project-media--tile" src="../assets/images/linki-demo.gif" alt="Linki web console document upload demo" loading="lazy" decoding="async" /><figcaption>Web console document-ingestion preview</figcaption></figure>
+    </div>
+  </section>
+
+  <section style="padding:clamp(40px,5vw,72px) 0 clamp(56px,7vw,96px)">
+    <h2 style="font-size:clamp(24px,2.4vw,30px);margin-bottom:22px">Links</h2>
+    <div class="btn-row">
+      <a class="btn btn--solid" href="https://github.com/Linkbreathe/LinkiRAG-AgenticRAG">Source repository <span class="ext">&#8599;</span></a>
+      <a class="btn" href="https://github.com/Linkbreathe/LinkiRAG-AgenticRAG/blob/main/BENCHMARK_RESULTS.md">Benchmark report <span class="ext">&#8599;</span></a>
+      <a class="btn" href="../index.html#contact">Contact for materials <span class="ext">&rarr;</span></a>
+    </div>
+  </section>
+
+  <nav class="row row--between" style="border-top:1px solid var(--line);padding:clamp(28px,4vw,44px) 0">
+    <a href="project-5.html" style="color:var(--muted)">&larr; Previous project</a>
+    <a href="project-7.html" style="color:var(--muted)">Next project &rarr;</a>
+  </nav>
+</main>
+<footer class="site-foot">
+  <div class="wrap">
+    <span>&copy; <span data-year>2026</span> Wei Xiong</span>
+    <span>Last updated September 2026</span>
+  </div>
+</footer>
+<script src="../js/main.js?v=20260918"></script>
+</body>
+</html>

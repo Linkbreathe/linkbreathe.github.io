@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Whispers of Dreams: An AI That Listens, Understands, and Visualizes Your Inner World — Wei Xiong</title>
+<meta name="robots" content="noindex, nofollow, noarchive" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-C4GPY54EQ3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-C4GPY54EQ3');
+</script>
+<meta name="description" content="A human-centred AI coursework project exploring emotional conversation, dream interpretation, and AI-generated dream art." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&family=Schibsted+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+<header class="site-head">
+  <div class="wrap">
+    <a class="backlink" href="../research.html"><span>&larr;</span> Back to Research</a>
+    <a class="wordmark" style="margin-right:0" href="../index.html">Wei Xiong</a>
+  </div>
+</header>
+<main class="wrap">
+
+  <section style="padding:clamp(44px,7vw,88px) 0 clamp(28px,4vw,44px)">
+    <p class="eyebrow" style="margin-bottom:22px">AI · HCAI coursework · 2025</p>
+    <h1 style="margin-bottom:24px;max-width:30ch">Whispers of Dreams: An AI That Listens, Understands, and Visualizes Your Inner World</h1>
+    <p style="font-size:clamp(17px,1.5vw,21px);line-height:1.55;color:#4A4844;max-width:60ch">A three-phase AI companion that helps people move from emotional conversation to dream interpretation and personalized visual storytelling.</p>
+  </section>
+
+  <img class="project-img project-img--hero project-img--dream-cover" src="../assets/images/dream-ai-cover.png" alt="Dream AI cover illustration showing a woman seated on a crescent moon in a starry sky" />
+
+  <section class="facts">
+    <div>
+      <p class="label" style="margin-bottom:10px">Role</p>
+      <p>Concept development · interaction and prompt design</p>
+    </div>
+    <div>
+      <p class="label" style="margin-bottom:10px">Context</p>
+      <p>HCAI &amp; AR coursework</p>
+    </div>
+    <div>
+      <p class="label" style="margin-bottom:10px">System</p>
+      <p>GPT-4 · RAG / FAISS · DALL·E 3</p>
+    </div>
+    <div>
+      <p class="label" style="margin-bottom:10px">Supervisor</p>
+      <p><a class="fact-link" href="https://cs.au.dk/contact/people/show/person/elm%40cs.au.dk" target="_blank" rel="noopener noreferrer">Niklas Elmqvist <span class="ext">&#8599;</span></a></p>
+    </div>
+    <div>
+      <p class="label" style="margin-bottom:10px">Status</p>
+      <p>Course project · exploratory prototype</p>
+    </div>
+  </section>
+
+  <section class="doc-section">
+    <div class="doc-section__head">
+      <h2><span class="num">01</span>Overview</h2>
+    </div>
+    <div class="doc-section__body">
+      <p>Dreams can feel vivid, symbolic, and emotionally important, yet they often disappear before there is a comfortable place to talk about them. This human-centred AI project explores whether an AI companion can help people stay with that inner world through listening, gentle interpretation, and visual expression.</p>
+      <p>The experience is deliberately not framed as a diagnostic tool. It offers a reflective conversation, makes room for uncertainty, and turns a user’s dream into a visual artefact they can revisit. The aim is emotional resonance and self-articulation, not a scientifically correct answer.</p>
+      <p><strong>Technical context.</strong> When this project began, retrieval-augmented generation (RAG) was still an emerging approach rather than a widely adopted pattern. Building a FAISS-backed retrieval layer was therefore also a technical experiment: an exploration of how external knowledge could ground a sensitive, open-ended conversation without turning interpretation into a fixed answer.</p>
+    </div>
+  </section>
+
+  <section class="doc-section">
+    <div class="doc-section__head">
+      <h2><span class="num">02</span>User insight</h2>
+    </div>
+    <div class="doc-section__body">
+      <p>We interviewed 20 students and young adults about dream sharing, AI companionship, and the appeal of visualising dreams. The conversations suggested a tension: dreams were widely understood as personal and symbolic, but many participants felt uncomfortable sharing them with other people.</p>
+      <p>Participants were more open to an AI conversation than a face-to-face one, while also asking for an experience that felt less robotic and more emotionally aware. The strongest shared interest was visualisation: people wanted to see their dream translated into an image.</p>
+      <figure>
+        <img class="project-img project-img--figure" src="../assets/images/dream-ai-user-study.png" alt="Bar chart summarising user insights about sharing dreams and AI perception" loading="lazy" />
+        <figcaption>Self-reported themes from the 20-person interview study shaped the emphasis on emotional awareness and dream visualisation.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="doc-section">
+    <div class="doc-section__head">
+      <h2><span class="num">03</span>Three-phase experience</h2>
+    </div>
+    <div class="doc-section__body">
+      <p>The concept guides the user through three connected phases. Emotional context is gathered before dream interpretation, and the resulting imagery is generated only after the user has described the dream in their own words.</p>
+      <p>This sequence keeps the system grounded in the user’s lived context while giving them a visible way to move forward, go back, or add detail.</p>
+      <figure>
+        <img class="project-img project-img--figure" src="../assets/images/dream-ai-flow.png" alt="Three interface states connected by arrows: emotional conversation, dream description, and dream art generation" loading="lazy" />
+        <figcaption>The interface moves from emotional context, to dream description, to a visual interpretation the user can choose to generate.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="doc-section">
+    <div class="doc-section__head">
+      <h2><span class="num">04</span>Emotional conversation</h2>
+    </div>
+    <div class="doc-section__body">
+      <p>In the first phase, Makima welcomes the user and asks about recent life experiences, emotional stress, personal struggles, or anything that has been on their mind. Her job is not to analyse or fix the user. She holds space and builds an emotional memory for the next phase.</p>
+      <p>The tone is intentionally warm, slow, and lightly poetic. Questions such as “What’s been weighing on your heart lately?” open a window into waking life without forcing the user toward a conclusion.</p>
+      <figure>
+        <img class="project-img project-img--figure project-img--detail" src="../assets/images/dream-ai-makima.png" alt="Dream AI interface for the first phase, with Makima guiding an emotional conversation" loading="lazy" />
+        <figcaption>Makima is designed as a companion who listens before the system asks the user to describe a dream.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="doc-section">
+    <div class="doc-section__head">
+      <h2><span class="num">05</span>Dream interpretation</h2>
+    </div>
+    <div class="doc-section__body">
+      <p>In the second phase, the conversation shifts to Mai Sakurajima, a poetic and emotionally perceptive dream interpreter. Mai draws on both the dream description and the emotional context gathered earlier, connecting symbols to the user’s recent experiences without claiming that one meaning is definitive.</p>
+      <p>When a dream is too short or vague, the system does not invent an explanation. It asks for more detail: what the user saw, who was there, where the dream took place, and how it felt.</p>
+      <ul class="case-list">
+        <li><strong>Limited response length.</strong> Interpretations stay to around two short paragraphs so the user can respond rather than being buried under an essay.</li>
+        <li><strong>Context-aware reflection.</strong> Retrieved material is combined with the emotional thread of the earlier conversation.</li>
+        <li><strong>Permission to disagree.</strong> The output is framed as a possible reading, not a verdict about the user.</li>
+      </ul>
+      <figure>
+        <img class="project-img project-img--figure project-img--detail" src="../assets/images/dream-ai-mai-detail.png" alt="Dream AI interface showing Mai asking for more details about a dream before interpreting it" loading="lazy" />
+        <figcaption>Mai’s interaction makes elaboration part of the interpretation process instead of filling gaps with confident guesses.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="doc-section">
+    <div class="doc-section__head">
+      <h2><span class="num">06</span>Dream art generator</h2>
+    </div>
+    <div class="doc-section__body">
+      <p>Once the dream has been described, the final phase translates its themes, mood, and symbolic details into an image using OpenAI’s DALL·E 3 model. The system first turns the user’s words into a more deliberate visual prompt, then lets the user choose from styles such as fantasy, surrealism, watercolor, pixel art, gothic, or a randomised option.</p>
+      <p>The generated image is not presented as the dream’s objective representation. It is a visual mirror: one possible artefact that can help the user revisit or hold onto a fleeting experience.</p>
+      <p class="dream-prompt">A glowing, dreamlike city made entirely of reflective glass towers under a violet sky, with a small figure walking alone.</p>
+      <figure>
+        <img class="project-img project-img--figure project-img--detail" src="../assets/images/dream-ai-generator.png" alt="Dream AI art generation interface with selectable styles and a generated dream image" loading="lazy" />
+        <figcaption>The final phase makes the subconscious tangible without closing down its ambiguity.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="doc-section">
+    <div class="doc-section__head">
+      <h2><span class="num">07</span>System details</h2>
+    </div>
+    <div class="doc-section__body">
+      <p>The implementation combines prompt engineering with retrieval-augmented generation. Mai uses a FAISS vector database built from classic dream theories, modern psychology literature, and folk or symbolic references. Incoming dream descriptions are semantically chunked to improve matching against that reference set.</p>
+      <p>A similarity threshold determines when retrieval is meaningful enough to support an interpretation. If the threshold is not met, Mai asks the user to describe more rather than producing unsupported meaning. A style-conditioned prompt engine then prepares the visual request for DALL·E 3.</p>
+      <figure>
+        <img class="project-img project-img--figure project-img--detail" src="../assets/images/dream-ai-mai-response.png" alt="Example of Mai connecting dream symbols with a user's recent emotional context" loading="lazy" />
+        <figcaption>The intended behaviour is context-aware conversation: the system links dream imagery to the emotional thread without presenting that link as fact.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="doc-section">
+    <div class="doc-section__head">
+      <h2><span class="num">08</span>Reflection</h2>
+    </div>
+    <div class="doc-section__body">
+      <p>The project’s central design question is not “Can AI decode dreams?” but “Can AI help someone reflect on a dream without taking ownership of its meaning?” That distinction makes uncertainty, tone, and user control part of the system design rather than afterthoughts.</p>
+      <p>All conversations and generated images are treated as ephemeral. The experience aims to be private and intimate, while remaining honest about its limits: it can offer comfort, associations, and a prompt for reflection, but it cannot provide scientifically precise explanations or replace professional support.</p>
+    </div>
+  </section>
+
+  <section class="doc-section tech-stack">
+    <div class="doc-section__head"><h2><span class="num">09</span>Tech Stack</h2></div>
+    <div class="doc-section__body">
+      <div class="tech-stack-list">
+        <div class="tech-stack-item"><p class="label">Conversation</p><p>GPT-4, persona prompting, emotional context, and guided user input</p></div>
+        <div class="tech-stack-item"><p class="label">Retrieval</p><p>FAISS vector database, semantic chunking, and a similarity threshold for grounded interpretation</p></div>
+        <div class="tech-stack-item"><p class="label">Visual generation</p><p>OpenAI DALL·E 3 with style-conditioned prompt generation</p></div>
+        <div class="tech-stack-item"><p class="label">Design focus</p><p>Human–AI interaction, emotional awareness, uncertainty communication, and ephemeral data handling</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="doc-section" style="display:block">
+    <div class="row row--between" style="margin-bottom:clamp(20px,3vw,32px)">
+      <h2 style="font-size:clamp(24px,2.4vw,30px)">Visual materials</h2>
+      <p class="label" style="color:var(--faint)">10</p>
+    </div>
+    <div class="grid grid--gallery">
+      <img class="project-img project-img--tile" src="../assets/images/dream-ai-makima-response.png" alt="Example of Makima responding to a user's feelings with a warm, poetic prompt" loading="lazy" />
+      <img class="project-img project-img--tile" src="../assets/images/dream-ai-mai.png" alt="Dream description interface with Mai Sakurajima" loading="lazy" />
+      <img class="project-img project-img--tile" src="../assets/images/dream-ai-output-grid.png" alt="Grid of dream images generated in fantasy, surreal, watercolor, pixel art, and gothic styles" loading="lazy" />
+      <img class="project-img project-img--tile" src="../assets/images/dream-ai-sleep.png" alt="Dreamlike illustration of a person sleeping in warm lamplight" loading="lazy" />
+    </div>
+  </section>
+
+  <section style="padding:clamp(40px,5vw,72px) 0 clamp(56px,7vw,96px)">
+    <h2 style="font-size:clamp(24px,2.4vw,30px);margin-bottom:22px">Links</h2>
+    <div class="btn-row">
+      <a class="btn btn--solid" href="../index.html#contact">Contact for project details <span class="ext">&rarr;</span></a>
+    </div>
+  </section>
+
+  <nav class="row row--between" style="border-top:1px solid var(--line);padding:clamp(28px,4vw,44px) 0">
+    <a href="../research.html" style="color:var(--muted)">&larr; All research</a>
+    <a href="../research.html" style="color:var(--muted)">All research &rarr;</a>
+  </nav>
+</main>
+<footer class="site-foot">
+  <div class="wrap">
+    <span>&copy; <span data-year>2026</span> Wei Xiong</span>
+    <span>Last updated September 2026</span>
+  </div>
+</footer>
+<script src="../js/main.js?v=20260918"></script>
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Distilling GPT-4 Preferences for Summarization — Wei Xiong</title>
+<meta name="robots" content="noindex, nofollow, noarchive" />
+<meta name="description" content="A preference-aligned Reddit TL;DR summarization project combining metric calibration and Direct Preference Optimization under limited compute." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&family=Schibsted+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+<header class="site-head">
+  <div class="wrap">
+    <a class="backlink" href="../research.html"><span>&larr;</span> Back to Research</a>
+    <a class="wordmark" style="margin-right:0" href="../index.html">Wei Xiong</a>
+  </div>
+</header>
+<main class="wrap">
+
+  <section style="padding:clamp(44px,7vw,88px) 0 clamp(28px,4vw,44px)">
+    <p class="eyebrow" style="margin-bottom:22px">AI · Coursework report · Preference alignment</p>
+    <h1 style="margin-bottom:24px;max-width:25ch">Distilling GPT-4 Preferences for Summarization</h1>
+    <p style="font-size:clamp(17px,1.5vw,21px);line-height:1.55;color:#4A4844;max-width:62ch">Metric calibration and Direct Preference Optimization for more factual, concise, and preference-aligned Reddit TL;DR summaries under limited compute.</p>
+  </section>
+
+  <div class="project-visual project-visual--nlp" role="img" aria-label="Abstract visual for a preference-aligned summarization pipeline">
+    <div class="project-visual__content">
+      <p class="project-visual__kicker">Metric calibration / DPO</p>
+      <p class="project-visual__title">From proxy scores to better summaries.</p>
+      <p class="project-visual__caption">Flan-T5 · ROUGE-L · BERTScore · NLI factuality · GPT-4 judgments</p>
+    </div>
+  </div>
+
+  <section class="facts">
+    <div>
+      <p class="label" style="margin-bottom:10px">Role</p>
+      <p>Co-author · evaluation pipeline · analysis</p>
+    </div>
+    <div>
+      <p class="label" style="margin-bottom:10px">Category</p>
+      <p>NLP · summarization · preference learning</p>
+    </div>
+    <div>
+      <p class="label" style="margin-bottom:10px">Collaborators</p>
+      <p>Yaning Wen · Yunting Wang</p>
+    </div>
+    <div>
+      <p class="label" style="margin-bottom:10px">Supervisor</p>
+      <p>Akhil Arora</p>
+    </div>
+    <div>
+      <p class="label" style="margin-bottom:10px">Status</p>
+      <p>Coursework report · preprint</p>
+    </div>
+  </section>
+
+  <section class="doc-section">
+    <div class="doc-section__head">
+      <h2><span class="num">01</span>Question</h2>
+    </div>
+    <div class="doc-section__body">
+      <p>Supervised summarization models can produce fluent text while still missing what people value: factual accuracy, relevance, and concision. This project asks whether a small preference dataset, built from calibrated automatic metrics, can move a Flan-T5 summarizer toward better Reddit TL;DRs without a full reward-modeling or reinforcement-learning pipeline.</p>
+      <p>The central design tension is that no single metric captures summary quality. Lexical overlap, semantic similarity, and factual consistency each reward a different aspect of the output.</p>
+    </div>
+  </section>
+
+  <section class="doc-section">
+    <div class="doc-section__head">
+      <h2><span class="num">02</span>Pipeline</h2>
+    </div>
+    <div class="doc-section__body">
+      <p>The system first fine-tunes a Flan-T5 baseline on a cleaned Reddit TL;DR corpus. Multiple encoder-decoder models and decoding settings then generate diverse candidate summaries for the same posts.</p>
+      <figure>
+        <div class="framing-flow" role="img" aria-label="Summarization pipeline from supervised fine-tuning through candidate generation, metric calibration, preference construction, and DPO">
+          <div class="framing-step"><span class="framing-step__num">01</span><strong>Initialize</strong><span>Fine-tune Flan-T5</span></div>
+          <span class="framing-arrow">&rarr;</span>
+          <div class="framing-step"><span class="framing-step__num">02</span><strong>Generate</strong><span>Diverse candidates</span></div>
+          <span class="framing-arrow">&rarr;</span>
+          <div class="framing-step"><span class="framing-step__num">03</span><strong>Calibrate</strong><span>Match GPT-4 preferences</span></div>
+          <span class="framing-arrow">&rarr;</span>
+          <div class="framing-step"><span class="framing-step__num">04</span><strong>Align</strong><span>Train with DPO</span></div>
+        </div>
+        <figcaption>Automatic metrics are calibrated against a small set of GPT-4 pairwise judgments before they are used to construct preference pairs.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="doc-section">
+    <div class="doc-section__head">
+      <h2><span class="num">03</span>Metric calibration</h2>
+    </div>
+    <div class="doc-section__body">
+      <p>We compare 400 candidate pairs with GPT-4 judgments and search over the simplex of metric weights. The best combination puts most weight on BERTScore while retaining explicit factuality and a small lexical-overlap contribution.</p>
+      <div class="metric-grid" aria-label="Calibrated metric weights">
+        <div class="metric"><span class="metric__value">0.020</span><span class="metric__label">ROUGE-L</span></div>
+        <div class="metric"><span class="metric__value">0.780</span><span class="metric__label">BERTScore</span></div>
+        <div class="metric"><span class="metric__value">0.200</span><span class="metric__label">Factuality</span></div>
+      </div>
+      <p>The calibrated score filters pairs using a factuality threshold, a minimum score gap, and a minimum quality requirement for the human-written TL;DR. This yields 19,796 preference pairs: 6,569 human-over-model comparisons and 13,227 model-over-model comparisons.</p>
+    </div>
+  </section>
+
+  <section class="doc-section">
+    <div class="doc-section__head">
+      <h2><span class="num">04</span>What changed</h2>
+    </div>
+    <div class="doc-section__body">
+      <p>Three DPO models vary the regularization coefficient β while keeping the training setup fixed. On 500 held-out test posts, all DPO variants improve the NLI-based factuality score and slightly improve BERTScore, while ROUGE-L decreases as the model rewrites more aggressively.</p>
+      <div class="metric-grid" aria-label="Selected evaluation results">
+        <div class="metric"><span class="metric__value">+0.0943</span><span class="metric__label">Factuality gain · β 0.01</span></div>
+        <div class="metric"><span class="metric__value">0.7912</span><span class="metric__label">Best BERTScore · β 0.1</span></div>
+        <div class="metric"><span class="metric__value">52.0%</span><span class="metric__label">GPT-4 win rate · β 0.1</span></div>
+      </div>
+      <p>The result is not a simple metric win. The most aggressive factuality improvement produces the weakest GPT-4 preference score, while moderate β values offer the better balance between stability and preference alignment.</p>
+    </div>
+  </section>
+
+  <section class="doc-section">
+    <div class="doc-section__head">
+      <h2><span class="num">05</span>Reflection</h2>
+    </div>
+    <div class="doc-section__body">
+      <p>This project made the limits of proxy rewards concrete. An NLI-based factuality signal can detect overt contradictions while missing plausible hallucinations or stylistic drift. GPT-4 judgments expose that gap by evaluating factuality, coverage, concision, and naturalness together.</p>
+      <p>The broader lesson is that preference alignment needs evaluation signals that remain expressive after they are operationalised. Calibration helps, but it does not remove the need for richer preference data and careful qualitative inspection.</p>
+    </div>
+  </section>
+
+  <section style="padding:clamp(40px,5vw,72px) 0 clamp(56px,7vw,96px)">
+    <h2 style="font-size:clamp(24px,2.4vw,30px);margin-bottom:22px">Links</h2>
+    <div class="btn-row">
+      <a class="btn btn--solid" href="../assets/files/NLP_report.pdf" target="_blank" rel="noopener noreferrer">Read the report <span class="tag">PDF</span></a>
+      <a class="btn" href="../index.html#contact">Contact for project details <span class="ext">&rarr;</span></a>
+    </div>
+  </section>
+
+  <nav class="row row--between" style="border-top:1px solid var(--line);padding:clamp(28px,4vw,44px) 0">
+    <a href="project-8.html" style="color:var(--muted)">&larr; Previous project</a>
+    <a href="project-10.html" style="color:var(--muted)">Next project &rarr;</a>
+  </nav>
+</main>
+<footer class="site-foot">
+  <div class="wrap">
+    <span>&copy; <span data-year>2026</span> Wei Xiong</span>
+    <span>Last updated September 2026</span>
+  </div>
+</footer>
+<script src="../js/main.js?v=20260918"></script>
+</body>
+</html>
