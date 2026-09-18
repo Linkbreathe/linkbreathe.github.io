@@ -38,7 +38,32 @@ p{margin:0;text-wrap:pretty}
 .meta .sep{color:#C6C2B9}
 .meta .dim{color:var(--muted-2)}
 .small{font-size:14px;color:var(--muted-2)}
-.supervisor{font-size:13px;color:#1E407C;font-weight:700}
+.supervisor{font-size:13px;color:var(--muted-2)}
+.byline{font-size:13.5px;line-height:1.5;color:var(--muted-2);margin-top:auto}
+
+/* research output — citation style */
+.pub-list{list-style:none;margin:0;padding:0;counter-reset:pub}
+.pub{display:grid;grid-template-columns:auto 1fr;gap:4px 18px;padding:22px 0;border-top:1px solid var(--line-2)}
+.pub:first-child{border-top:1px solid var(--ink)}
+.pub::before{counter-increment:pub;content:"[" counter(pub) "]";grid-row:1 / span 3;
+  font-family:var(--mono);font-size:12.5px;color:var(--faint);padding-top:4px}
+.pub__cite{font-size:16.5px;line-height:1.6;color:var(--ink);max-width:72ch}
+.pub__cite em{font-style:italic}
+.pub__note{font-size:13.5px;color:var(--muted-2);margin-top:6px}
+.pub__status{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--accent);border:1px solid var(--line);border-radius:var(--r-pill);padding:3px 9px}
+.pub__links{margin-top:8px;font-size:14px}
+.pub__links a{color:var(--accent)}
+
+/* research page tiers */
+.tier-head{font-size:clamp(20px,2vw,24px);padding-bottom:14px;border-bottom:1px solid var(--ink)}
+.tier-head--minor{margin-top:clamp(56px,7vw,88px);color:var(--muted);border-bottom-color:var(--line)}
+.tier-note{font-size:14.5px;color:var(--muted-2);margin:14px 0 0;max-width:56ch}
+.other-list{list-style:none;margin:8px 0 0;padding:0}
+.other{padding:20px 0;border-bottom:1px solid var(--line-2)}
+.other__title{font-family:var(--serif);font-size:19px;line-height:1.3}
+.other__meta{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;color:var(--muted-2);margin:6px 0 0}
+.other__desc{font-size:14.5px;line-height:1.6;color:var(--muted);margin:8px 0 0;max-width:68ch}
 .card__body p.supervisor{margin-top:-8px}
 .tag-list{display:flex;flex-wrap:wrap;gap:6px 8px}
 .tag-list .tag{padding:4px 9px;border:1px solid var(--line);border-radius:var(--r-pill);
