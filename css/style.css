@@ -50,7 +50,6 @@ p{margin:0;text-wrap:pretty}
 .section--tight{padding:clamp(40px,5vw,64px) 0}
 .grid{display:grid;gap:clamp(20px,2.5vw,32px);grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
 .grid--facts{grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:clamp(28px,4vw,56px)}
-.grid--interests{grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:clamp(24px,3vw,44px)}
 .grid--gallery{grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:clamp(14px,1.8vw,22px)}
 .row{display:flex;flex-wrap:wrap;gap:16px clamp(32px,5vw,72px)}
 .row--between{justify-content:space-between;align-items:baseline}
@@ -246,11 +245,6 @@ body.has-lightbox{overflow:hidden}
 .facts .fact-link{color:var(--accent);text-decoration:underline;text-decoration-color:rgba(60,90,84,.35);text-decoration-thickness:1px;text-underline-offset:4px}
 .facts .fact-link:hover{text-decoration-color:currentColor}
 .facts .fact-link .ext{font-size:.82em;color:var(--muted-2)}
-
-/* --- interests -------------------------------------------- */
-.interest{display:flex;flex-direction:column;gap:12px;padding-top:18px;border-top:1px solid var(--ink)}
-.interest h3{font-size:22px;line-height:1.25}
-.interest .num{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--muted-2)}
 
 /* --- contact + footer ------------------------------------- */
 .contact-h{font-size:clamp(30px,4.4vw,54px);line-height:1.1;letter-spacing:-.02em;margin-bottom:20px}
